@@ -1,0 +1,69 @@
+.heroSection{
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  background-image: url("https://countryofnowhere.files.wordpress.com/2013/06/tube-bubble-google.png");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+}
+
+
+.heroSection .right__section{
+  background: rgba(147, 26, 37 , 0.35);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color : white;
+}
+
+.heroSection .right__section h1{
+  color: white;
+  font-size: 3.5rem;
+  margin-bottom: 32px;
+}
+
+.heroSection .buttons{
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  margin-top: 32px;
+}
+
+.heroSection .buttons a{
+  display: inline-block;
+  padding: 16px;
+  border : 1px solid #F5EFEF;
+  color : #F5EFEF;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.heroSection .buttons .login{
+  background: #F5EFEF ;
+  color : #E97171;
+  padding: 16px 32px;
+  font-weight: 500;
+}
+
+.products{
+  background: #931A25;
+  padding: 64px;
+}
+
+.products .heading{
+  color : #F5EFEF;
+  text-align: center;
+}
+
+.product{
+  width: 50%;
+  padding: 32px;
+  border-radius: 8px;
+  background: #F5EFEF;
+  height: 400px;
+  margin: auto;
+  margin-top: 32px;
+box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}

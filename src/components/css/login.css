@@ -1,0 +1,78 @@
+.login__container{
+  width: 50%;
+  margin: auto;
+  margin-top: 64px;
+  padding: 64px;
+  border-radius: 8px;
+  background: rgba(147, 26, 37 , 0.8);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.login__container .heading{
+  text-align: center;
+  color : #F5EFEF;
+}
+
+.login__container .heading a{
+  color : white;
+
+}
+
+
+.login__container .heading h1{
+  margin-bottom: 16px;
+}
+
+.login__form{
+  width: 75%;
+  margin: auto;
+  margin-top: 32px;
+}
+
+.login__form p{
+  color : #F5EFEF;
+  margin-bottom: 8px;
+}
+
+.login__form input{
+  padding: 8px;
+  background:  #F5EFEF;
+  border : 1px solid #E97171;
+  margin-bottom: 8px;
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.login__form a{
+  display: inline-block;
+  margin-top: 8px;
+  color : #F5EFEF;
+  text-decoration: none;
+}
+
+.login__button__container{
+  width: 75%;
+  margin : auto;
+  display: block;
+}
+
+.login__button{
+  width: 100%;
+  margin-top: 64px;
+  padding: 12px;
+  font-size: 18px;
+  border : none;
+  outline: none;
+  border-radius: 6px;
+  background: #931A25;
+  color : #F5EFEF;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.login__button:hover{
+  background-color: #F5EFEF;
+  color :  #931A25;
+  transition: 0.5s;
+}
