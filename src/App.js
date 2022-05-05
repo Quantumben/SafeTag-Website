@@ -7,7 +7,6 @@ import CEmail from "./components/CEmail"
 import Plans from "./components/Plans"
 import ForgetPass from "./components/ForgetPass"
 import Account from "./components/Account"
-import Support from "./components/Support"
 
 
 
@@ -22,7 +21,6 @@ function App() {
         <Route path="/Plans" element={<Plans />} />
         <Route path="/forgetPass" element={<ForgetPass />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/support" element={<Support />} />
       </Routes>
     </Router>
   );

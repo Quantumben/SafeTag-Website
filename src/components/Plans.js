@@ -115,7 +115,7 @@ const Plans = (props) => {
             </div>
             <div className="price__details">
               <p className="price__price">
-                £5
+                5$
               </p>
               <p>
                 Every Month
@@ -140,7 +140,7 @@ const Plans = (props) => {
             </div>
             <div className="price__details">
               <p className="price__price">
-                £54
+                54$
               </p>
               <p>
                 Every Year

@@ -39,10 +39,3 @@ body{
   color : #FFCB8E;
   transition: 0.5s;
 }
-
-
-@media (max-width : 767px) {
-  .nav__container{
-    flex-direction: column;
-  }
-}

@@ -72,35 +72,3 @@
 .registration__footer a{
   color : white;
 }
-
-
-.registraion__select{
-  width: 100%;
-  outline: none;
-  border : none;
-  border-radius: 8px;
-  background:  #F5EFEF;
-  border : 1px solid #E97171;
-  padding: 8px;
-}
-
-
-
-
-@media (max-width : 1023px) {
-  .register__container {
-    width: 75%;
-  }
-}
-
-
-@media (max-width : 767px) {
-  .register__container{
-    width: 95%;
-    padding: 64px 24px;
-  }
-
-  .registraion__select{
-    margin-bottom: 16px;
-  }
-}

@@ -18,9 +18,9 @@
 
 
 .plans__container .price__price{
+
   font-weight: 500;
   font-size: 128px;
-  color : #931A25;
 }
 
 
@@ -78,23 +78,4 @@
   background-color: #F5EFEF;
   color :  #931A25;
   transition: 0.5s;
-}
-
-
-
-@media (max-width : 1250px) {
-  .right__container .best__plan{
-    width: 40%;
-  }
-}
-
-
-@media (max-width : 767px) {
-  .plans{
-    grid-template-columns: 1fr;
-  }
-
-  .plans__button__container{
-    width: 80%;
-  }
 }

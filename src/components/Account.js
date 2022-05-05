@@ -17,7 +17,7 @@ const Account = (props) => {
   const [userName , setName] = useState("");
   const [contat , setContact] = useState("");
   const [stripeId , setStripeId] = useState(true);
-  const [buttonStatus , setButtonStats] = useState("Add Payment Method")
+  const [buttonStatus , setButtonStats] = useState("Add Payment Button")
   const [but_disabled , setButDis] = useState(true);
   const [hitRoute , setHitRoute]= useState("create-setup-session")
 
