@@ -5,6 +5,10 @@ import Navigation from "./Navigation"
 import "./css/support.css"
 
 const Support = (props) => {
+
+  const handleClick = (e)=>{
+    e.target.classList.toggle('active')
+  }
   return (
     <div>
       <Navigation />
@@ -17,7 +21,7 @@ const Support = (props) => {
         </div>
 
         <div className="support__content__container">
-          <div className="support__content">
+          <div className="support__content" onClick={handleClick}>
             <div className="heading">
               <h3>
                 Getting Started
@@ -29,7 +33,7 @@ const Support = (props) => {
               </p>
             </div>
           </div>
-          <div className="support__content">
+          <div className="support__content" onClick={handleClick}>
             <div className="heading">
               <h3>
                 What if I have more than one Device?
@@ -41,7 +45,7 @@ const Support = (props) => {
               </p>
             </div>
           </div>
-          <div className="support__content">
+          <div className="support__content" onClick={handleClick}>
             <div className="heading">
               <h3>
                 How do i manage my Subscriptions?
@@ -53,7 +57,7 @@ const Support = (props) => {
               </p>
             </div>
           </div>
-          <div className="support__content">
+          <div className="support__content" onClick={handleClick}>
             <div className="heading">
               <h3>
                 What if my tracker doesn't show up on the map?

@@ -76,3 +76,18 @@
   color :  #931A25;
   transition: 0.5s;
 }
+
+
+@media (max-width : 1023px) {
+  .login__container {
+    width: 75%;
+  }
+}
+
+
+@media (max-width : 767px) {
+  .login__container{
+    width: 95%;
+    padding: 64px 24px;
+  }
+}

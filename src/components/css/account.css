@@ -13,9 +13,10 @@
   margin-top: 64px;
   padding: 64px;
   border-radius: 8px;
-  background: rgba(147, 26, 37 , 0.8);
+  background: #F5EFEF;
+  border : 1px solid rgba(147, 26, 37 , 0.8);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  color : white;
+  color : rgba(147, 26, 37 , 0.8);
   margin-bottom: 16px;
 }
 
@@ -54,4 +55,18 @@
 
 .p_but{
   cursor: pointer;
+}
+
+
+@media (max-width : 1023px) {
+  .account__container{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width : 767px) {
+  .account__container > div {
+    padding: 64px 24px;
+  }
 }
