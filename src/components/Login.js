@@ -2,6 +2,7 @@ import React , {useState} from 'react'
 
 import {Link , useNavigate} from 'react-router-dom'
 import Navigation from "./Navigation"
+import Error from "./Error"
 
 import axios from 'axios';
 
@@ -12,7 +13,9 @@ const Login = (props) => {
   const [email , setEmail] = useState('');
   const[password , setPassword] = useState('');
   const [disabled , setDisabled] = useState(false);
-  const [butval , setButVal] = useState('Log In')
+  const [butval , setButVal] = useState('Log In');
+  const [error , setError] = useState(false);
+  const[errorMessage , setErrorMessage] = useState("");
 
   const onEmailInput = (e)=>{
     setEmail(e.target.value);
@@ -55,6 +58,8 @@ const Login = (props) => {
     }
     catch(e){
       console.log(e.response.data.message);
+      setError(true);
+      setErrorMessage(e.response.data.message);
     }
 
     setButVal('Log In');
@@ -66,6 +71,12 @@ const Login = (props) => {
   return (
     <div>
     <Navigation />
+    {
+      (error)?
+      <Error message={errorMessage} />
+      :
+      <></>
+    }
     <div className="login__container">
       <div className="heading">
       <h1>

@@ -1,0 +1,13 @@
+.error__container{
+  width: 55%;
+  margin: auto;
+  background: #931A25;
+  color : #F5EFEF;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 64px;
+  margin-bottom: -32px;
+  background: rgba(147, 26, 37 , 0.8);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  text-align: center;
+}

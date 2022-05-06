@@ -2,7 +2,7 @@ import React , {useState,useEffect} from 'react'
 
 import {Link , useNavigate} from 'react-router-dom'
 import Navigation from "./Navigation"
-
+import Error from "./Error"
 
 import axios from 'axios';
 import './css/registraion.css'
@@ -12,6 +12,9 @@ const CEmail = (props) => {
   const history = useNavigate();
   const [username , setUsername] = useState("");
   const [confirmCode , setConfirmCode] = useState("");
+  const [error , setError] = useState(false);
+  const[errorMessage , setErrorMessage] = useState("");
+
 
   const updateUsername = (e)=>{
     setUsername(e.target.value)
@@ -41,7 +44,10 @@ const CEmail = (props) => {
       }
     }
     catch(e){
+
       console.log(e.response.data.message);
+      setError(true);
+      setErrorMessage(e.response.data.message);
     }
 
 
@@ -77,6 +83,12 @@ const CEmail = (props) => {
     <div>
         <Navigation />
 
+          {
+            (error)?
+            <Error message={errorMessage} />
+            :
+            <></>
+          }
       <div className ="register__container">
         <div className="heading">
           <h1>

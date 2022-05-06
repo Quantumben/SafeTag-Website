@@ -67,3 +67,50 @@
   margin-top: 32px;
 box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+
+
+@media (max-width : 1250px) {
+  .heroSection{
+    grid-template-columns: 0.9fr 1fr;
+  }
+  .heroSection .buttons{
+    width: 65%;
+  }
+}
+
+
+@media (max-width : 1023px) {
+  .heroSection{
+    grid-template-columns: 1fr;
+  }
+
+  .heroSection .left__section{
+    height: 0;
+    display: none;
+  }
+
+  .products .product{
+    width: 75%;
+  }
+}
+
+
+
+@media (max-width : 767px) {
+
+  .products{
+    padding: 64px 16px;
+  }
+
+  .products .product{
+    width: 95%;
+  }
+}
+
+
+@media (max-width : 375px) {
+
+  .heroSection .buttons{
+    width: 80%;
+  }
+}
