@@ -12,7 +12,7 @@ const Home = () => {
       <div className="left__section">
       </div>
       <div className="right__section">
-        <h1>REDTRACK</h1>
+        <h1>SafeTag</h1>
         <p>For your peace of Mind</p>
         <div className="buttons">
           <Link to="/signup" className="signup">Get Started</Link>

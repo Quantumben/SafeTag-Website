@@ -369,7 +369,7 @@ const Register = (props) => {
           <input type="checkbox" vale="" onClick={handleCheck} className="checkBox">
           </input>
           <span>
-            I want to receive RedTrack Updates
+            I want to receive SafeTag Updates
           </span>
           </div>
 

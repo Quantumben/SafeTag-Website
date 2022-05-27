@@ -40,7 +40,7 @@ const handleLogout = async()=>{
       <div className="nav__container">
         <div className ="logo__container">
           <h3>
-            REDTRACK
+            SafeTag
           </h3>
         </div>
 

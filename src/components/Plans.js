@@ -110,7 +110,7 @@ const Plans = (props) => {
           <div className="left__container plan">
             <div className="heading">
               <p>
-                Red Track (1 month)
+                SafeTag (1 month)
               </p>
             </div>
             <div className="price__details">
@@ -123,7 +123,7 @@ const Plans = (props) => {
             </div>
             <div className="price__footer">
               <p>
-                Track 1 RedTrack Device 24/7 for 1 Month
+                Track 1 SafeTag Device 24/7 for 1 Month
               </p>
             </div>
           </div>
@@ -135,7 +135,7 @@ const Plans = (props) => {
             </div>
             <div className="heading">
               <p>
-                Red Track (1 Year)
+                SafeTag (1 Year)
               </p>
             </div>
             <div className="price__details">
@@ -148,7 +148,7 @@ const Plans = (props) => {
             </div>
             <div className="price__footer">
               <p>
-                Track 1 RedTrack Device 24/7 for a year with 10% discount
+                Track 1 SafeTag Device 24/7 for a year with 10% discount
               </p>
             </div>
           </div>

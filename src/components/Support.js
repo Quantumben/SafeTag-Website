@@ -73,7 +73,7 @@ const Support = (props) => {
 
         <div className="support__footer">
           <h1>
-            Support@redtrack.shop
+            Support@SafeTag.shop
           </h1>
         </div>
       </div>
