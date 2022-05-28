@@ -37,7 +37,7 @@ const Login = (props) => {
     data = JSON.stringify(data);
     try{
 
-    let response = await axios.post("https://tuex4qy1sl.execute-api.eu-west-2.amazonaws.com/prod/login" ,
+    let response = await axios.post("https://api.safetagtracking.com/login" ,
     data,
     {
       headers :{
@@ -52,7 +52,7 @@ const Login = (props) => {
       await localStorage.setItem("redtrack-id_token" , response.IdToken)
       await localStorage.setItem("redtrack-ref_token" , response.RefreshToken)
       await localStorage.setItem("redtrack-username" , email)
-      history("/account");
+      history("/myDevice");
       return null;
     }
     }

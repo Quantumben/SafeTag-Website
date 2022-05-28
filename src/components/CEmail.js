@@ -31,7 +31,7 @@ const CEmail = (props) => {
     }
 
     try{
-      let response = await axios.post("https://tuex4qy1sl.execute-api.eu-west-2.amazonaws.com/prod/users/confirm/"+username+"/"+confirmCode,{
+      let response = await axios.post("https://api.safetagtracking.com/users/confirm/"+username+"/"+confirmCode,{
         headers : {
           'Content-Type' : 'application/json'
         }
@@ -57,7 +57,7 @@ const CEmail = (props) => {
   const resendCode = async ()=>{
     console.log("Everyone Hates me");
     try{
-      let response = await axios.post("https://tuex4qy1sl.execute-api.eu-west-2.amazonaws.com/prod/users/resend/"+username,{
+      let response = await axios.post("https://api.safetagtracking.com/users/resend/"+username,{
         headers : {
           'Content-Type' : 'application/json'
         }

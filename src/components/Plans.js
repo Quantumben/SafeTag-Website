@@ -43,7 +43,7 @@ const Plans = (props) => {
             history("/login")
           }
 
-          let response = await axios.get("https://tuex4qy1sl.execute-api.eu-west-2.amazonaws.com/prod/users/"+username , {
+          let response = await axios.get("https://api.safetagtracking.com/users/"+username , {
             headers : {
               "Authorization" : await localStorage.getItem('redtrack-id_token')
             }

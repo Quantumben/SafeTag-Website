@@ -30,7 +30,7 @@ const ForgetPass = (props) => {
     if(username.length === 0 ){
       alert('Please Enter a Username')
     }
-    const response = await axios.post("https://tuex4qy1sl.execute-api.eu-west-2.amazonaws.com/prod/users/reset/" + username, {
+    const response = await axios.post("https://api.safetagtracking.com/users/reset/" + username, {
       headers : {
         'Content-Type' : 'application/json'
       }

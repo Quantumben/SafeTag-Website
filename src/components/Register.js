@@ -316,7 +316,7 @@ const Register = (props) => {
 
     data = JSON.stringify(data);
     try{
-      let response = await axios.post("https://tuex4qy1sl.execute-api.eu-west-2.amazonaws.com/prod/users" , data ,{
+      let response = await axios.post("https://api.safetagtracking.com/users" , data ,{
         headers : {
           'Content-Type' : 'application/json'
         }

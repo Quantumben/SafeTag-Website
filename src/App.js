@@ -9,7 +9,7 @@ import ForgetPass from "./components/ForgetPass"
 import Account from "./components/Account"
 import Support from "./components/Support"
 import Success from "./components/Success"
-
+import MyDevice from "./components/MyDevice"
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/support" element={<Support />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/myDevice" element={<MyDevice />} />
       </Routes>
     </Router>
   );

@@ -18,9 +18,8 @@
   color : white;
 }
 
-.heroSection .right__section h1{
-  color: white;
-  font-size: 3.5rem;
+.heroSection .right__section img{
+  width: 60%;
   margin-bottom: 32px;
 }
 

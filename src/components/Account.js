@@ -24,7 +24,7 @@ const Account = (props) => {
 
   const handleSubmit = async ()=>{
     try{
-    let response = await axios.get("https://tuex4qy1sl.execute-api.eu-west-2.amazonaws.com/prod/"+hitRoute+"/"+userEmail , {
+    let response = await axios.get("https://api.safetagtracking.com/"+hitRoute+"/"+userEmail , {
       headers : {
         "Authorization" : await localStorage.getItem('redtrack-id_token')
       }
@@ -58,7 +58,7 @@ const Account = (props) => {
         const username = await localStorage.getItem('redtrack-username');
         setEmail(username);
 
-        let response = await axios.get("https://tuex4qy1sl.execute-api.eu-west-2.amazonaws.com/prod/users/"+username , {
+        let response = await axios.get("https://api.safetagtracking.com/users/"+username , {
           headers : {
             "Authorization" : await localStorage.getItem('redtrack-id_token')
           }

@@ -39,9 +39,7 @@ const handleLogout = async()=>{
   return (
       <div className="nav__container">
         <div className ="logo__container">
-          <h3>
-            SafeTag
-          </h3>
+          <img src="/assets/name.png"></img>
         </div>
 
         <div className="nav__items__container">

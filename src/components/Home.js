@@ -12,8 +12,8 @@ const Home = () => {
       <div className="left__section">
       </div>
       <div className="right__section">
-        <h1>SafeTag</h1>
-        <p>For your peace of Mind</p>
+        <img src="/assets/name.png"></img>
+        <p>For your peace of mind</p>
         <div className="buttons">
           <Link to="/signup" className="signup">Get Started</Link>
           <Link to="/login" className="login">Login</Link>
