@@ -47,8 +47,8 @@ const handleLogout = async()=>{
             <Link to="/">
               Home
             </Link>
-            <Link to="/plans">
-              Plans & Pricing
+            <Link to="/addDevice">
+              Add Device
             </Link>
             <Link to="/Support">
               Support

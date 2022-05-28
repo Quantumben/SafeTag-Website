@@ -1,0 +1,214 @@
+.plans__container{
+  width: 80%;
+  margin: auto;
+  margin-top: 64px;
+  text-align: center;
+  padding-bottom: 64px;
+}
+
+.plans{
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+.plans__container .heading{
+  font-size: 24px;
+}
+
+
+.plans__container .price__price{
+  font-weight: 500;
+  font-size: 80px;
+  color : #931A25;
+}
+
+
+.left__container .heading{
+  margin-top: 28px;
+}
+
+
+
+.plans .plan{
+  padding: 32px;
+  border : 1px solid #E97171;
+  margin-top: 64px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+.right__container .best__plan{
+  background: #931A25;
+  color : #F5EFEF;
+  width: 20%;
+  padding: 8px;
+  border-radius: 4px;
+  margin: auto;
+  margin-top: -48px;
+  margin-bottom: 32px;
+
+}
+
+.plans__button__container{
+  width: 55%;
+  margin : auto;
+  display: block;
+}
+
+.plans__button{
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  font-size: 18px;
+  border : none;
+  outline: none;
+  border-radius: 6px;
+  background: #931A25;
+  color : #F5EFEF;
+  transition: 0.5s;
+  margin-bottom: 16px;
+  cursor: pointer;
+  border : 1px solid #931A25;
+  margin-top: 32px;
+}
+
+.plans__button:hover{
+  background-color: #F5EFEF;
+  color :  #931A25;
+  transition: 0.5s;
+}
+
+
+.add_device_form_container{
+  width: 60%;
+  margin: auto;
+  padding: 32px;
+  border : 1px solid #E97171;
+  margin-top: 64px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  text-align: left;
+}
+
+.form__input{
+  margin: 8px;
+}
+
+.form__input p{
+  margin-bottom: 2px;
+}
+
+.form__input input{
+  border : none;
+  outline: none;
+  background: #F5EFEF;
+  border-bottom : 1px solid #E97171;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.form__input__sub{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+}
+
+
+.form__input__sub div{
+  border : 1px solid #931A25;
+  padding: 8px;
+  border-radius: 8px;
+  width: 80%;
+  text-align: center;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+
+.form__input__sub div.active , .form__input__sub div:hover{
+  background: #931A25;
+  color : #F5EFEF;
+  transition: 0.5s;
+}
+
+
+.form__action__buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+
+.form__action__buttons button{
+  width: 80%;
+  border : none;
+  outline: none;
+  background: #931A25;
+  color : #F5EFEF;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+
+
+.form__action__buttons a{
+  display: inline-block;
+  text-decoration: none;
+  padding: 4px 16px;
+  border : 1px solid #931A25;
+  border-radius: 8px;
+  color : #931A25;
+  width: 50%;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.plans__container .error__container{
+  margin-bottom: 32px;
+}
+
+@media (max-width : 1250px) {
+  .right__container .best__plan{
+    width: 40%;
+  }
+}
+
+@media (max-width : 1023px) {
+  .add_device_form_container{
+    width: 95%;
+    margin: auto;
+    margin-top: 32px;
+  }
+}
+
+
+@media (max-width : 767px) {
+  .plans{
+    grid-template-columns: 1fr;
+  }
+
+  .plans__button__container{
+    width: 80%;
+  }
+
+  .plans__container .error__container{
+    width: 80%;
+  }
+
+  .form__input__sub{
+    flex-direction: column;
+    align-items: center;
+  }
+}
