@@ -120,9 +120,10 @@ const Plans = (props) => {
     //   }
 
     let payload = {
-      imei : tracker_id,
-      name : tracker_name
+      "imei" : tracker_id,
+      "name" : tracker_name
     }
+
 
 
 
@@ -146,15 +147,36 @@ const Plans = (props) => {
 
     console.log(payload);
 
-    let response = await axios.patch("https://api.safetagtracking.com/device/"+username , {data : payload} , {
-      headers : {
-        "Authorization" : await localStorage.getItem('redtrack-id_token'),
-        "Content-type" : "application/json"
+    var data = JSON.stringify({
+  "imei": tracker_id,
+  "name": tracker_name
+});
+
+    var config = {
+  method: 'patch',
+  url: 'https://api.safetagtracking.com/device/'+username,
+  headers: {
+    'Authorization': await localStorage.getItem('redtrack-id_token'),
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+    let response = await axios(config)
+
+    if(response.status === 200){
+      response = await axios.get("https://api.safetagtracking.com/device/subscription/"+username+"/"+tracker_id+"/"+subVal , {
+        headers : {
+          'Authorization': await localStorage.getItem('redtrack-id_token')
+        }
+      })
+
+      if(response.status === 200){
+        response = response.data;
+        window.location.href = response.url;
+        return null;
       }
-    })
-
-
-    console.log(response);
+    }
 
 
     }
