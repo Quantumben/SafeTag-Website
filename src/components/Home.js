@@ -12,7 +12,7 @@ const Home = () => {
       <div className="left__section">
       </div>
       <div className="right__section">
-        <img src="/assets/name.png"></img>
+        <img src="/assets/logo1.png"></img>
         <p>For your peace of mind</p>
         <div className="buttons">
           <Link to="/signup" className="signup">Get Started</Link>
