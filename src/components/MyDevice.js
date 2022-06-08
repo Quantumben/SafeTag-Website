@@ -43,7 +43,8 @@ const MyDevice = (props) => {
         }
         setError(false)
         await localStorage.setItem("redtrack-id_token" , respo.token);
-        helper()
+        helper();
+        return;
 
       }
 
@@ -118,8 +119,14 @@ const MyDevice = (props) => {
         })
 
       }
-
+      <div className="renew__button">
+        <button className="action__button">
+          Renew
+        </button>
+      </div>
     </div>
+
+
     </div>
   )
 }
