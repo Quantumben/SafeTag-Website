@@ -3,6 +3,7 @@
   width: 80%;
   margin: auto;
   margin-top: 64px;
+  padding: 32px;
 }
 
 .device__container{
@@ -16,6 +17,7 @@
   justify-content: center;
   text-align: center;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .device__name{
