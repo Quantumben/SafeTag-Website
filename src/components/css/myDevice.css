@@ -1,0 +1,81 @@
+
+.device__list__container{
+  width: 80%;
+  margin: auto;
+  margin-top: 64px;
+}
+
+.device__container{
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-gap: 8px;
+  align-items: center;
+  border : 1px solid #931A25;
+  border-radius: 8px;
+  padding: 8px;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.device__name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device__name span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.device__name .editName{
+  width: 20px;
+  cursor: pointer;
+}
+
+.device__list__container .middle__section .item{
+  display: flex;
+  align-items: center;
+  width: 60%;
+  margin: auto;
+  margin-bottom: 16px;
+}
+
+.device__list__container .middle__section .item img{
+  width: 30px;
+  margin-right: 16px;
+}
+
+.device__container .right__section .sub__status p{
+  font-size: 24px;
+}
+
+.device__container .right__section button{
+  margin-top: 16px;
+  padding: 12px;
+  font-size: 16px;
+  border : none;
+  outline: none;
+  border-radius: 6px;
+  background: #931A25;
+  color : #F5EFEF;
+  transition: 0.5s;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.device__container .close{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.device__container .close p{
+  font-weight: bold;
+  color : #E97171;
+  cursor: pointer;
+  font-size: 18px;
+}
