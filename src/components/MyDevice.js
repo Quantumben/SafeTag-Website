@@ -133,7 +133,8 @@ const MyDevice = (props) => {
       payload = JSON.stringify(payload);
       let response = await axios.patch("https://api.safetagtracking.com/device/name/"+username, payload ,{
         headers : {
-          "Authorization" : await localStorage.getItem('redtrack-id_token')
+          "Authorization" : await localStorage.getItem('redtrack-id_token'),
+          "Content-type" : "application/json"
         }
       })
 
