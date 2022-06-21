@@ -14,7 +14,7 @@ const Register = (props) => {
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
   const [checked , setChecked] = useState("FALSE");
-  const [country , setCountry] = useState("");
+  const [country , setCountry] = useState("GB");
   const [confirmPass , setConfirmPass] = useState("");
 
 
@@ -372,11 +372,11 @@ const countryList = {
           <input type="email" value = {email}  placeholder="Email" onChange= {updateEmail} required name='email'></input>
           <input type="password" value = {password}  placeholder="Password" onChange= {updatePassword} required name='password'></input>
           <input type="password" value = {confirmPass}  placeholder="Confirm Password" onChange= {updateConfirmPassword} required name='confirm_password'></input>
-            <select class="registraion__select" name="country" onChange = {updateCountry}>
+            <select class="registraion__select" name="country" onChange = {updateCountry} value={country}>
               {
 
                 Object.keys(countryList).map((key)=>{
-                  return  <option value={countryList[key]}>{key}</option>
+                  return  <option value={countryList[key]} >{key}</option>
                 })
               }
             </select>

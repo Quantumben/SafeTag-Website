@@ -24,7 +24,7 @@ const Account = (props) => {
 
   const handleSubmit = async ()=>{
     try{
-    let response = await axios.get("https://api.safetagtracking.com/"+hitRoute+"/"+userEmail , {
+    let response = await axios.get("https://api.safetagtracking.com/"+hitRoute+"/"+userEmail+"/addDevice" , {
       headers : {
         "Authorization" : await localStorage.getItem('redtrack-id_token')
       }
