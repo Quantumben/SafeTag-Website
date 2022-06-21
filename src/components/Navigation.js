@@ -47,9 +47,15 @@ const handleLogout = async()=>{
             <Link to="/">
               Home
             </Link>
-            <Link to="/addDevice">
-              Add Device
-            </Link>
+            {
+              (loggedIn)?
+              <Link to="/myDevice">
+                My Devices
+              </Link>
+              :
+              <></>
+            }
+
             <Link to="/Support">
               Support
             </Link>

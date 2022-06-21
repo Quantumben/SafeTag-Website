@@ -138,3 +138,20 @@
   border-radius: 8px;
   font-size: 16px;
 }
+
+@media (max-width: 767px) {
+  .device__container{
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .device__list__container .middle__section .item{
+    justify-content: center;
+  }
+
+  .popUpD{
+    width: 95%;
+  }
+  .renew__button .action__button{
+    width: 100%;
+  }
+}

@@ -16,9 +16,13 @@ const MyDevice = (props) => {
   const [errorMsg , setErrorMsg] = useState();
   const[devices , setDevices] = useState([]);
   const [popUpD , setPopupD] = useState(false);
-  const [devEditId , setDevEditId] = useState("");
   const [popUpC , setPopupC] = useState(false);
+  const [popUpB , setPopupB] = useState(false);
+  const [popUpA , setPopupA] = useState(false);
+  const [devEditId , setDevEditId] = useState("");
   const [deviceName , setDeviceName] = useState("");
+  const [devRemovalId , setRemovalId] = useState("");
+  const [devCancelId , setCancelId] = useState("");
 
   useEffect(()=>{
     const helper = async ()=>{
@@ -34,7 +38,7 @@ const MyDevice = (props) => {
 
       response = response.data;
       response.forEach((item, i) => {
-        console.log(item);
+        // console.log(item);
         if(item.subscription.status != "active")
           setPopupD(true);
       });
@@ -119,6 +123,7 @@ const MyDevice = (props) => {
       setPopupC(true);
   }
 
+
   const handleUpdateName = async()=>{
     try{
 
@@ -169,6 +174,97 @@ const MyDevice = (props) => {
     }
   }
 
+  const handlePreRemoval = (e)=>{
+    setRemovalId(e.target.id);
+    setPopupA(true);
+  }
+
+  const handleRemoval = async()=>{
+    try{
+
+      let username = await localStorage.getItem('redtrack-username');
+      let response = await axios.patch("https://api.safetagtracking.com/device/remove/"+username+"?device_id="+devRemovalId ,{}, {
+        headers : {
+          "Authorization" : await localStorage.getItem('redtrack-id_token')
+        }
+      })
+
+
+      response = response.data;
+      window.location.reload();
+      return null;
+    }
+    catch(e){
+      console.log(e.response);
+      if(e.response.data.message == 'jwt expired' || e.response.data.message == "jwt malformed"){
+        let respo = await refresLogin();
+        if(respo.message != 'okay'){
+          history("/Login");
+          return;
+        }
+        setError(false)
+        await localStorage.setItem("redtrack-id_token" , respo.token);
+        handleRemoval();
+        return;
+
+      }
+
+      setError(true);
+      if(e.response.data.message == "Cannot read property 'owner_id' of undefined"){
+        setErrorMsg("This device ID could not be found.")
+      }
+      else{
+        setErrorMsg(e.response.data.message);
+      }
+    }
+  }
+
+  const handleRedirect = ()=>{
+    history("/addDevice");
+  }
+
+  const handlePreCancel = (e) =>{
+    setCancelId(e.target.id);
+    setPopupB(true);
+  }
+
+  const handleCancel = async ()=>{
+    try{
+      let username = await localStorage.getItem('redtrack-username');
+      let response = await axios.delete("https://api.safetagtracking.com/device/subscription/"+username+"?device_id="+devCancelId , {
+        headers : {
+          "Authorization" : await localStorage.getItem('redtrack-id_token')
+        }
+      })
+
+      console.log(response);
+
+    }
+    catch(e){
+      console.log(e.response);
+      if(e.response.data.message == 'jwt expired' || e.response.data.message == "jwt malformed"){
+        let respo = await refresLogin();
+        if(respo.message != 'okay'){
+          history("/Login");
+          return;
+        }
+        setError(false)
+        await localStorage.setItem("redtrack-id_token" , respo.token);
+        handleCancel();
+        return;
+
+      }
+
+      setError(true);
+      if(e.response.data.message == "Cannot read property 'owner_id' of undefined"){
+        setErrorMsg("This device ID could not be found.")
+      }
+      else{
+        setErrorMsg(e.response.data.message);
+      }
+    }
+  }
+
   return (
     <div>
       <Navigation />
@@ -205,7 +301,7 @@ const MyDevice = (props) => {
                 </div>
                 <div className="item">
                   <img src="./assets/location.png"></img>
-                <p>{device.status.location ? device.status.location : "unavailable"}</p>
+                  <p>{device.status.location ? <a href={"https://maps.google.com/?q="+device.status.location} target="_blank" rel="noreferrer"> {device.status.location}</a> : "unavailable"}</p>
                 </div>
               </div>
             </div>
@@ -213,13 +309,21 @@ const MyDevice = (props) => {
               <div className="sub__status">
                 <p>{device.subscription.status ? device.subscription.status : "Overdue"}</p>
               </div>
-              <button className="action__button">
-                Renew
-              </button>
+              {
+                ( device.subscription.status=='active')?
+                <button id={device._id} className="action__button" onClick={handlePreCancel}>
+                  Cancel
+                </button>
+                :
+                <button className="action__button" onClick={handleUpdateSub}>
+                  Renew
+                </button>
+              }
+
             </div>
 
             <div className='close'>
-              <p>
+              <p id={device._id} onClick={handlePreRemoval}>
                 X
               </p>
             </div>
@@ -229,7 +333,7 @@ const MyDevice = (props) => {
 
       }
       <div className="renew__button">
-        <button className="action__button">
+        <button className="action__button" onClick ={handleRedirect}>
           Add Tracker
         </button>
       </div>
@@ -273,6 +377,44 @@ const MyDevice = (props) => {
       :
       <></>
     }
+    {
+    (popUpA) ?
+    <div className = "popUpD">
+      <p>
+        Would you like to remove this device? This will cancel the associated subscription and remove all related data from your account.
+      </p>
+      <div className="popUp__buttons">
+        <button className="portal" onClick={handleRemoval}>
+          Confirm
+        </button>
+
+        <button onClick ={() => setPopupA(false)}>
+          Cancel
+        </button>
+      </div>
+    </div>
+    :
+    <></>
+  }
+  {
+  (popUpB) ?
+  <div className = "popUpD">
+    <p>
+      Would you like to cancel your subscription plan? This will suspend your devices tracking capabilities and remove all associated data from your account.
+    </p>
+    <div className="popUp__buttons">
+      <button className="portal" onClick={handleCancel}>
+        Confirm
+      </button>
+
+      <button onClick ={() => setPopupB(false)}>
+        Cancel
+      </button>
+    </div>
+  </div>
+  :
+  <></>
+}
 
 
     </div>
