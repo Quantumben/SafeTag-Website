@@ -485,7 +485,7 @@ const MyDevice = (props) => {
         Confirm
       </button>
 
-      <button onClick ={() => setPopupB(false)}>
+      <button onClick ={() => {setPopupB(false);setCancelError(false)}}>
         Cancel
       </button>
     </div>
