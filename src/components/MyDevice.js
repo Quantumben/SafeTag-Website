@@ -24,6 +24,8 @@ const MyDevice = (props) => {
   const [devRemovalId , setRemovalId] = useState("");
   const [devCancelId , setCancelId] = useState("");
   const [noDev , setNoDev] = useState(true);
+  const [cancelError , setCancelError] = useState(false);
+  const [cancelErrorMsg , setCancelErrorMsg] =  useState("")
 
   useEffect(()=>{
     const helper = async ()=>{
@@ -44,26 +46,25 @@ const MyDevice = (props) => {
       if(response.length > 0){
         setNoDev(false)
         response.forEach((item, i) => {
-          console.log(item.status.battery);
           let bat = item.status.battery;
           let say;
-          if(bat >=0 && bat <=15){
-            say ="Extremely Low"
+          if(bat == 1){
+            say ="Extremely Low (0-15%)"
           }
-          else if (bat > 15 && bat <=30){
-            say = "Very Low"
+          else if (bat == 2){
+            say = "Very Low (16-30%)"
           }
-          else if( bat > 30 && bat <=45){
-            say = "Low"
+          else if( bat == 3){
+            say = "Low (31-45%)"
           }
-          else if(bat >45 && bat < 60){
-            say = "Medium"
+          else if(bat == 4){
+            say = "Medium (46-60%)"
           }
-          else if(bat>= 60 && bat < 75){
-            say = "High"
+          else if(bat == 5){
+            say = "High (61-75%)"
           }
-          else if(bat >=75 && bat <=100){
-            say = "Very High"
+          else if(bat == 6){
+            say = "Very High (76-100%)"
           }
 
           response[i].status.saying = say;
@@ -267,7 +268,8 @@ const MyDevice = (props) => {
         }
       })
 
-      console.log(response);
+      window.location.reload();
+      return;
 
     }
     catch(e){
@@ -285,13 +287,9 @@ const MyDevice = (props) => {
 
       }
 
-      setError(true);
-      if(e.response.data.message == "Cannot read property 'owner_id' of undefined"){
-        setErrorMsg("This device ID could not be found.")
-      }
-      else{
-        setErrorMsg(e.response.data.message);
-      }
+      setCancelError(true);
+      setCancelErrorMsg(e.response.data.message);
+      return;
     }
   }
 
@@ -349,7 +347,7 @@ const MyDevice = (props) => {
     <div className="device__list__container">
       {
         (noDev)?
-        <p>It looks like you haven’t paired any trackers to your account yet. Please press the add tracker button below to get started.</p>
+        <p style={{textAlign : "center"}}>It looks like you haven’t paired any trackers to your account yet. Please press the add tracker button below to get started.</p>
         :
         devices.map((device) => {
           return (
@@ -364,7 +362,7 @@ const MyDevice = (props) => {
               <div className="status">
                 <div className="item">
                   <img src="./assets/battery.png"></img>
-                  <p>{device.status.battery >= 0 ? device.status.battery + "% " + device.status.saying : "unavailabale"}</p>
+                  <p>{device.status.battery ? device.status.saying : "unavailabale"}</p>
                 </div>
                 <div className="item">
                   <img src="./assets/clock.png"></img>
@@ -492,8 +490,8 @@ const MyDevice = (props) => {
       </button>
     </div>
     {
-      (error)?
-      <Error message={errorMsg} />
+      (cancelError)?
+      <p style={{textAlign : 'center' , color : 'red' , marginTop : "16px"}}>{cancelErrorMsg}</p>
       :
       <></>
     }
