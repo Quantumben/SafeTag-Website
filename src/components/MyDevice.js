@@ -23,6 +23,7 @@ const MyDevice = (props) => {
   const [deviceName , setDeviceName] = useState("");
   const [devRemovalId , setRemovalId] = useState("");
   const [devCancelId , setCancelId] = useState("");
+  const [noDev , setNoDev] = useState(true);
 
   useEffect(()=>{
     const helper = async ()=>{
@@ -37,11 +38,40 @@ const MyDevice = (props) => {
       })
 
       response = response.data;
-      response.forEach((item, i) => {
-        // console.log(item);
-        if(item.subscription.status != "active")
-          setPopupD(true);
-      });
+      if(response == "No devices found"){
+        return;
+      }
+      if(response.length > 0){
+        setNoDev(false)
+        response.forEach((item, i) => {
+          console.log(item.status.battery);
+          let bat = item.status.battery;
+          let say;
+          if(bat >=0 && bat <=15){
+            say ="Extremely Low"
+          }
+          else if (bat > 15 && bat <=30){
+            say = "Very Low"
+          }
+          else if( bat > 30 && bat <=45){
+            say = "Low"
+          }
+          else if(bat >45 && bat < 60){
+            say = "Medium"
+          }
+          else if(bat>= 60 && bat < 75){
+            say = "High"
+          }
+          else if(bat >=75 && bat <=100){
+            say = "Very High"
+          }
+
+          response[i].status.saying = say;
+          if(item.subscription.status != "active")
+            setPopupD(true);
+        });
+      }
+
       await setDevices([...response]);
 
 
@@ -50,7 +80,7 @@ const MyDevice = (props) => {
 
     }
     catch(e){
-
+      console.log(e);
       console.log(e.response);
       if(e.response.data.message == 'jwt expired' || e.response.data.message == "jwt malformed"){
         let respo = await refresLogin();
@@ -265,6 +295,48 @@ const MyDevice = (props) => {
     }
   }
 
+
+  const handleRenewSub = async (e)=>{
+    try{
+      let iemi = e.target.id;
+      let username = await localStorage.getItem('redtrack-username');
+      let response = await axios.get("https://api.safetagtracking.com/device/subscription/"+username+"/"+iemi+"/m" , {
+        headers : {
+          "Authorization" : await localStorage.getItem('redtrack-id_token')
+        }
+      })
+
+      if(response.status == 200){
+        window.location.href = response.data.url;
+        return;
+      }
+      return;
+    }
+    catch(e){
+      console.log(e.response);
+      if(e.response.data.message == 'jwt expired' || e.response.data.message == "jwt malformed"){
+        let respo = await refresLogin();
+        if(respo.message != 'okay'){
+          history("/Login");
+          return;
+        }
+        setError(false)
+        await localStorage.setItem("redtrack-id_token" , respo.token);
+        handleRenewSub();
+        return;
+
+      }
+
+      setError(true);
+      if(e.response.data.message == "Cannot read property 'owner_id' of undefined"){
+        setErrorMsg("This device ID could not be found.")
+      }
+      else{
+        setErrorMsg(e.response.data.message);
+      }
+    }
+  }
+
   return (
     <div>
       <Navigation />
@@ -276,6 +348,9 @@ const MyDevice = (props) => {
         }
     <div className="device__list__container">
       {
+        (noDev)?
+        <p>It looks like you haven’t paired any trackers to your account yet. Please press the add tracker button below to get started.</p>
+        :
         devices.map((device) => {
           return (
           <div className="device__container" key={device._id}>
@@ -289,11 +364,11 @@ const MyDevice = (props) => {
               <div className="status">
                 <div className="item">
                   <img src="./assets/battery.png"></img>
-                  <p>{device.status.battery ? device.status.battery + "%" : "unavailabale"}</p>
+                  <p>{device.status.battery >= 0 ? device.status.battery + "% " + device.status.saying : "unavailabale"}</p>
                 </div>
                 <div className="item">
                   <img src="./assets/clock.png"></img>
-                  <p>{device.status.speed ? device.status.speed + " km/h" : "unavailabale"}</p>
+                  <p>{device.status.speed >= 0? device.status.speed + " km/h" : "unavailabale"}</p>
                 </div>
                 <div className="item">
                   <img src="./assets/wifi.png"></img>
@@ -315,7 +390,12 @@ const MyDevice = (props) => {
                   Cancel
                 </button>
                 :
+                ( device.subscription.status=='past_due' || device.subscription.status=='incomplete' )?
                 <button className="action__button" onClick={handleUpdateSub}>
+                  Manage
+                </button>
+                :
+                <button className="action__button" id={device._id} onClick={handleRenewSub}>
                   Renew
                 </button>
               }
@@ -411,6 +491,12 @@ const MyDevice = (props) => {
         Cancel
       </button>
     </div>
+    {
+      (error)?
+      <Error message={errorMsg} />
+      :
+      <></>
+    }
   </div>
   :
   <></>
