@@ -21,7 +21,7 @@ const Footer2 = () => {
             Terms
           </Link>
         </div>
-        <p className=' pb-2 text-sm text-center px-4'>SafeTag is a company registered in the United Kingdom (no. xxxxxxxxxx)</p>
+        <p className=' pb-2 text-sm text-center px-4'>DownRiver is a company registered in the United Kingdom (no. 14028429)</p>
     </div>
   )
 }

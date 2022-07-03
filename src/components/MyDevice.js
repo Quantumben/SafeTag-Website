@@ -372,15 +372,15 @@ const MyDevice = (props) => {
            </div>
                 <div className="item">
                   <img className=' w-4 h-4 object-contain' src="./assets/battery.png"></img>
-                  <p className=' text-sm'>{device.status.battery ? device.status.saying : "unavailabale"}</p>
+                  <p className=' text-sm'>{device.status.battery ? device.status.saying : "unavailable"}</p>
                 </div>
                 <div className="item">
                   <img className=' w-4 h-4 object-contain' src="./assets/clock.png"></img>
-                  <p className=' text-sm'>{device.status.speed >= 0? device.status.speed + " km/h" : "unavailabale"}</p>
+                  <p className=' text-sm'>{device.status.speed >= 0? device.status.speed + " km/h" : "unavailable"}</p>
                 </div>
                 <div className="item">
                   <img className=' w-4 h-4 object-contain' src="./assets/wifi.png"></img>
-                  <p className=' text-sm'>{device.status.signal ? device.status.signal + "%": "unavailabale"}</p>
+                  <p className=' text-sm'>{device.status.signal ? device.status.signal + "%": "unavailable"}</p>
                 </div>
                 <div className="item ">
                   <img className=' w-4 h-4 object-contain' src="./assets/location.png"></img>
