@@ -8,6 +8,7 @@ import refresLogin from "../utils/refreshLogin"
 
 
 import "./css/myDevice.css"
+import Footer2 from './Footer2'
 
 const MyDevice = (props) => {
 
@@ -336,7 +337,7 @@ const MyDevice = (props) => {
   }
 
   return (
-    <div>
+    <div >
       <Navigation />
         {
           (error)?
@@ -344,7 +345,11 @@ const MyDevice = (props) => {
           :
           <></>
         }
-    <div className="device__list__container">
+        
+    <div className="device__list__container min-h-screen">
+     
+        <h1 className=' w-full text-center text-4xl font-bold pb-7'>My Trackers</h1>
+    
       {
         (noDev)?
         <p style={{textAlign : "center"}}>It looks like you haven’t paired any trackers to your account yet. Please press the add tracker button below to get started.</p>
@@ -352,33 +357,38 @@ const MyDevice = (props) => {
         devices.map((device) => {
           return (
           <div className="device__container" key={device._id}>
-            <div className="left__section">
-              <div>
-                <p className="device__name">{device.prefs.name}  <span id={device._id} onClick={handleEditStart}> <img id={device._id} className="editName" src="./assets/edit.png"></img> </span> </p>
-                <p>{device._id}</p>
+            <div className="left__section ">
+              <div className=' flex items-center gap-2'>
+              <img className=' w-20 h-20 object-contain' src="./assets/loc.png"></img>
+               <div className='hidden lg:block'>
+               <p className="device__name clear-left text-xl font-semibold">{device.prefs.name}  <span id={device._id} onClick={handleEditStart}> <img id={device._id} className="editName" src="./assets/edit.png"></img> </span> </p>
+                <p className=' text-gray-500'>{device._id}</p>
+               </div>
               </div>
             </div>
             <div className="middle__section">
-              <div className="status">
+           <div className=' block lg:hidden'>
+           <p className="device__name  text-sm font-semibold">{device.prefs.name}   </p>
+           </div>
                 <div className="item">
-                  <img src="./assets/battery.png"></img>
-                  <p>{device.status.battery ? device.status.saying : "unavailabale"}</p>
+                  <img className=' w-4 h-4 object-contain' src="./assets/battery.png"></img>
+                  <p className=' text-sm'>{device.status.battery ? device.status.saying : "unavailabale"}</p>
                 </div>
                 <div className="item">
-                  <img src="./assets/clock.png"></img>
-                  <p>{device.status.speed >= 0? device.status.speed + " km/h" : "unavailabale"}</p>
+                  <img className=' w-4 h-4 object-contain' src="./assets/clock.png"></img>
+                  <p className=' text-sm'>{device.status.speed >= 0? device.status.speed + " km/h" : "unavailabale"}</p>
                 </div>
                 <div className="item">
-                  <img src="./assets/wifi.png"></img>
-                  <p>{device.status.signal ? device.status.signal + "%": "unavailabale"}</p>
+                  <img className=' w-4 h-4 object-contain' src="./assets/wifi.png"></img>
+                  <p className=' text-sm'>{device.status.signal ? device.status.signal + "%": "unavailabale"}</p>
                 </div>
-                <div className="item">
-                  <img src="./assets/location.png"></img>
-                  <p>{device.status.location ? <a href={"https://maps.google.com/?q="+device.status.location} target="_blank" rel="noreferrer"> {device.status.location}</a> : "unavailable"}</p>
+                <div className="item ">
+                  <img className=' w-4 h-4 object-contain' src="./assets/location.png"></img>
+                  <p className=' text-sm'>{device.status.location ? <a href={"https://maps.google.com/?q="+device.status.location} target="_blank" rel="noreferrer"> {device.status.location}</a> : "unavailable"}</p>
                 </div>
-              </div>
+         
             </div>
-            <div className="right__section">
+            <div className="right__section flex items-center flex-col lg:flex-row justify-center ">
               <div className="sub__status">
                 <p>{device.subscription.status ? device.subscription.status : "Overdue"}</p>
               </div>
@@ -410,11 +420,7 @@ const MyDevice = (props) => {
         })
 
       }
-      <div className="renew__button">
-        <button className="action__button" onClick ={handleRedirect}>
-          Add Tracker
-        </button>
-      </div>
+  
     </div>
     {
       (popUpC) ?
@@ -500,7 +506,7 @@ const MyDevice = (props) => {
   <></>
 }
 
-
+<Footer2/>
     </div>
   )
 }

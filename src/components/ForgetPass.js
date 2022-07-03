@@ -8,6 +8,7 @@ import Navigation from "./Navigation"
 import axios from 'axios';
 import './css/registraion.css'
 import './css/forgotPass.css'
+import Footer2 from './Footer2';
 
 const ForgetPass = (props) => {
 
@@ -85,20 +86,18 @@ const ForgetPass = (props) => {
   return (
     <div>
       <Navigation />
-      <div className="register__container">
-        <div className="heading">
-          <h1>
-            Forgot Password
-          </h1>
-        </div>
+      <h1 className=' mt-10 text-5xl font-bold w-full text-center'>Forget Passoword</h1>
+      <div className="register__container ">
+  
 
         <div className="registration__form">
             <input type="text" value = {username}  placeholder="Username" onChange= {updateName} required></input>
-              <div className="registration__footer">
-                <p>
-                 <Link to="login" onClick={(event)=>{event.preventDefault() ; handleSendCode(); }}>Send Confirmation Code</Link>
-                </p>
-              </div>
+           
+        
+                <button onClick={(event)=>{event.preventDefault() ; handleSendCode(); }} className="sigin__button">
+                Send Confirmation Code
+              </button>
+        
               {
                 showBelow ?
                 <>
@@ -122,6 +121,9 @@ const ForgetPass = (props) => {
 
 
       </div>
+     <div className=' mt-72'>
+     <Footer2/>
+     </div>
   </div>
   )
 }

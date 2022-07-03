@@ -1,6 +1,6 @@
 
 .device__list__container{
-  width: 80%;
+  width: 70%;
   margin: auto;
   margin-top: 64px;
   padding: 32px;
@@ -11,8 +11,9 @@
   grid-template-columns: repeat(3,minmax(0,1fr));
   grid-gap: 8px;
   align-items: center;
-  border : 1px solid #931A25;
-  border-radius: 8px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
   padding: 8px;
   justify-content: center;
   text-align: center;
@@ -23,7 +24,7 @@
 .device__name{
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding-left: 5px;
 }
 
 .device__name span{
@@ -40,15 +41,15 @@
 
 .device__list__container .middle__section .item{
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 60%;
   margin: auto;
-  margin-bottom: 16px;
+  margin-bottom: 2px;
 }
 
 .device__list__container .middle__section .item img{
   width: 30px;
-  margin-right: 16px;
+ 
 }
 
 .device__container .right__section .sub__status p{
@@ -60,9 +61,10 @@
   padding: 12px;
   font-size: 16px;
   border : none;
+  margin-left: 10px;
   outline: none;
   border-radius: 6px;
-  background: #931A25;
+  background: #AB4843;
   color : #F5EFEF;
   transition: 0.5s;
   margin-bottom: 16px;
@@ -89,7 +91,7 @@
 
 .device__container .close p{
   font-weight: bold;
-  color : #E97171;
+  color : #AB4843;
   cursor: pointer;
   font-size: 18px;
 }
@@ -130,7 +132,7 @@
 .popUp__buttons button{
   margin-bottom: 16px;
   cursor: pointer;
-  color : #931A25;
+  color : #AB4843;
   background: #F5EFEF;
   padding: 16px 32px;
   border : none;
@@ -139,13 +141,57 @@
   font-size: 16px;
 }
 
-@media (max-width: 767px) {
+@media only screen and (max-width: 768px)  {
+  .device__list__container .middle__section .item{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 2px;
+  }
+  .device__container .right__section .sub__status p{
+    padding-top: 15px;
+    font-size: 14px;
+  }
   .device__container{
-    grid-template-columns: minmax(0,1fr);
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 8px;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  
+  .device__list__container{
+    width: 95%;
+    margin: auto;
+    margin-top: 64px;
+    padding: 12px;
+  }
+  .device__container .right__section button , .renew__button .action__button , .popUp__buttons .portal {
+    margin-top: 0px;
+    padding: 5px;
+    font-size: 16px;
+    border : none;
+    outline: none;
+    margin-left: 0px;
+    font-size: 15px;
+    border-radius: 6px;
+    background: #AB4843;
+    color : #F5EFEF;
+    transition: 0.5s;
+    margin-bottom: 16px;
+    cursor: pointer;
   }
 
   .device__list__container .middle__section .item{
-    justify-content: center;
+    justify-content: start;
+    align-items: flex-start;
   }
 
   .popUpD{

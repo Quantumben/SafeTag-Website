@@ -3,11 +3,13 @@
 .register__container{
   width: 50%;
   margin: auto;
-  margin-top: 64px;
+  margin-top: 24px;
   padding: 64px;
-  border-radius: 8px;
-  background: rgba(147, 26, 37 , 0.8);
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+  background: #FFFFFF;
+  border: 1px solid #ABABAB;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
   color : white;
   margin-bottom: 16px;
 }
@@ -16,20 +18,27 @@
   text-align: center;
   margin-bottom: 8px;
 }
-
+.tellMe input{
+  border: none;
+  box-shadow: none;
+  border-radius: none;
+}
 .registration__form input{
     padding: 8px;
-    background:  #F5EFEF;
-    border : 1px solid #E97171;
+    background: #FFFFFF;
+    border: 1px solid #BDBDBD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
     margin-bottom: 8px;
     display: block;
     width: 100%;
-    border-radius: 8px;
+color: black;
     margin-bottom: 16px;
 }
 
 .checkbox__container{
   display: flex;
+  color: black;
   align-items: center;
 }
 
@@ -43,7 +52,7 @@
 }
 
 .signin__button__container{
-  width: 75%;
+  width: 45%;
   margin : auto;
   display: block;
 }
@@ -56,7 +65,7 @@
   border : none;
   outline: none;
   border-radius: 6px;
-  background: #931A25;
+  background: #AB4843;
   color : #F5EFEF;
   transition: 0.5s;
   margin-bottom: 16px;
@@ -64,13 +73,9 @@
 }
 
 .sigin__button:hover{
-  background-color: #F5EFEF;
-  color :  #931A25;
+  background-color: #931A25;
+  color :  #fff;
   transition: 0.5s;
-}
-
-.registration__footer a{
-  color : white;
 }
 
 
@@ -78,9 +83,11 @@
   width: 100%;
   outline: none;
   border : none;
-  border-radius: 8px;
-  background:  #F5EFEF;
-  border : 1px solid #E97171;
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
   padding: 8px;
 }
 

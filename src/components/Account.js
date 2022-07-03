@@ -6,6 +6,8 @@ import Navigation from "./Navigation"
 
 import axios from 'axios';
 import './css/account.css'
+import Footer2 from './Footer2';
+import {AiOutlineCloseCircle} from "react-icons/ai"
 
 const Account = (props) => {
 
@@ -96,51 +98,45 @@ const Account = (props) => {
   return (
     <div>
     <Navigation />
-
-      <div className="account__container">
-        <div className="left__section">
-          <div className="heading">
-            <h1>
-                Your Details
-            </h1>
-          </div>
-          <div className="details">
-            <p>
-              Email : {userEmail}
-            </p>
-          </div>
+    <h1 className=' mt-10 text-5xl font-bold w-full text-center'>My Account</h1>
+      <div className="account__container px-3 lg:px-0">
+        <div className="left__section w-full lg:w-1/3 ">
+        <p className=' font-semibold '> Name</p>
           <div className="details">
             <p>
               Name : {userName}
             </p>
           </div>
+        <p className=' font-semibold '> Email</p>
           <div className="details">
             <p>
-              Contact Method : Email
+              {userEmail}
             </p>
           </div>
+         
+     
+          <p className=' font-semibold '> Country</p>
           <div className="details">
             <p>
-              Country : {userCountry}
+               {userCountry}
             </p>
           </div>
+          <p className=' font-semibold  flex items-center gap-2'> Contact   <AiOutlineCloseCircle className=' text-gray-600 cursor-pointer w-6 h-6' /></p>
+        
         </div>
-        <div className="right__container">
-          <div className="heading">
-            <h1>
-              Billing Details
-            </h1>
-          </div>
-
-          <div className="payment_button">
-            <button className="details p_but" disabled = {but_disabled} onClick= {handleSubmit}>
+        <div className="left__section w-full lg:w-1/3 ">
+        <div className="payment_button flex items-center gap-3">
+          <p className=' font-semibold'>Billing</p>
+            <button className=" px-8  text-white font-semibold bg-pr py-2 rounded-xl" disabled = {but_disabled} onClick= {handleSubmit}>
               {
                 buttonStatus
               }
             </button>
           </div>
-        </div>
       </div>
+    
+      </div>
+      <Footer2/>
 
     </div>
   )
