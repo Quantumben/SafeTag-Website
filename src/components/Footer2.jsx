@@ -5,7 +5,7 @@ const Footer2 = () => {
     <div style={{borderTop:"1px solid #C9C9C9"}} className=" w-full py-2">
               <div className=" py-2 flex items-center justify-center">
           <img
-            src="/assets/Shield.png"
+            src="/assets/shield.png"
             className=" w-12 object-contain"
             alt=""
           />
