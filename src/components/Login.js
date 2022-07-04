@@ -26,6 +26,12 @@ const Login = (props) => {
   };
 
   const handleSubmit = async () => {
+    if (password.length === 0 || email.length === 0) {
+      setError(true);
+      setErrorMessage("Fields can't be empty");
+      return;
+    }
+    
     setButVal("Logging In");
     setDisabled(true);
 

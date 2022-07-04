@@ -55,7 +55,6 @@ const CEmail = (props) => {
   }
 
   const resendCode = async ()=>{
-    console.log("Everyone Hates me");
     try{
       let response = await axios.post("https://api.safetagtracking.com/users/resend/"+username,{
         headers : {

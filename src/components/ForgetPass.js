@@ -77,7 +77,6 @@ const ForgetPass = (props) => {
           history("/login")
         }
       }
-
       catch(e){
         console.log(e.response.data.message);
       }

@@ -293,7 +293,6 @@ const Register = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async () => {
-    console.log("No one loves me");
     if (name.length === 0 || password.length === 0 || email.length === 0) {
       setError(true);
       setErrorMessage("Fields can't be empty");
