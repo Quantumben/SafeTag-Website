@@ -14,7 +14,7 @@ const Privacy = () => {
         <div className=" w-full lg:w-1/3 new_class p-4">
           <h5 className=" font-semibold text-xs w-full text-center"> Your personal data </h5>
 
-          <p className=" pb-2 text-xs font-medium text-center">
+          <p className=" pb-2 text-xs font-medium text-left">
             Here at SafeTag we are dedicated to protecting the privacy of our customers. In accordance with EU’s General Data Protection Regulation (GDPR), we use the data collected about our customers lawfully and only to process their purchases and provide the best quality service possible.
             Upon logging in to www.safetagtracking.com, several cookies will be created to remember your login information to speed up and ease the login process. This data is encrypted and protected.
             SafeTag stores your username/email and password for login purposes. SafeTag also stores your name, if you enter this during your registration.
