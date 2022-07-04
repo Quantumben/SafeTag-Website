@@ -6,7 +6,7 @@ const Privacy = () => {
   return (
     <div>
       <Navigation />
-      <h1 className=' w-full text-center text-4xl font-bold pb-7'>SafeTag Privacy Policy</h1>
+      <h1 className=' mt-10 w-full text-center text-4xl font-bold pb-7'>SafeTag Privacy Policy</h1>
 
       <div className=" my-10 w-full px-3 lg:px-0 flex items-center justify-center">
         <div className=" w-full lg:w-1/3 new_class p-4">
