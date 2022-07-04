@@ -446,7 +446,7 @@ const MyDevice = (props) => {
       (popUpD) ?
       <div className = "popUpD">
         <p>
-          It looks like your tracker subscription payments have failed. Please update your payment method within 7 days, or these trackers will be removed from your account.
+          It looks like your subscription payments have failed. Please update your payment method to continue using your tracker.
         </p>
         <div className="popUp__buttons">
           <button className="portal" onClick={handleUpdateSub}>
