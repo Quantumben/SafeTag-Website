@@ -6,7 +6,7 @@ const Tos = () => {
   return (
     <div>
       <Navigation />
-      <h2 className=" text-4xl font-semibold">SafeTag Terms and Conditions of Sale and Service</h2>
+      <h1 className=' w-full text-center text-4xl font-bold pb-7'>SafeTag Terms and Conditions of Sale and Service</h1>
 
       <div className=" my-10 w-full px-3 lg:px-0 flex items-center justify-center">
         <div className=" w-full lg:w-1/3 new_class p-4">
