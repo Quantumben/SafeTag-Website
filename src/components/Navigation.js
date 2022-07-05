@@ -230,14 +230,7 @@ const [tHistory, setTHistory] = useState(false)
                 </div>
               </div>
             )}
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? "text-pr" : "text-black hover:text-pr"
-              }
-              to="/Support"
-            >
-              Support
-            </NavLink>
+            
 
             {loggedIn === true && (
               <div className=" relative">
@@ -270,6 +263,14 @@ const [tHistory, setTHistory] = useState(false)
                 </div>
               </div>
             )}
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-pr" : "text-black hover:text-pr"
+              }
+              to="/Support"
+            >
+              Support
+            </NavLink>
             {loggedIn ? (
               <>
                 <div className=" relative">

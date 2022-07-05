@@ -49,7 +49,7 @@ const Home = () => {
                   to="/my-devices"
                   className=" px-4 py-3 bg-white rounded-md  cursor-pointer  text-sm"
                 >
-                  My Tracker
+                  My Trackers
                 </Link>
               </div>
             ) : (
@@ -115,10 +115,10 @@ const Home = () => {
             {loggedIn ? (
               <div className=" flex items-center justify-center gap-4  py-10">
                 <Link
-                  to="/my-devices"
+                  to="/track"
                   className=" px-4 py-3 rounded-md bg-pr cursor-pointer text-white text-sm"
                 >
-                 View Trackers
+                 Track
                 </Link>
                 <Link
                   to="/add-device"
