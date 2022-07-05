@@ -372,15 +372,15 @@ const MyDevice = (props) => {
            </div>
                 <div className="item">
                   <img className=' w-4 h-4 object-contain' src="./assets/battery.png"></img>
-                  <p className=' text-sm'>{device.status.battery ? device.status.saying : "unavailabale"}</p>
+                  <p className=' text-sm'>{device.status.battery ? device.status.saying : "unavailable"}</p>
                 </div>
                 <div className="item">
                   <img className=' w-4 h-4 object-contain' src="./assets/clock.png"></img>
-                  <p className=' text-sm'>{device.status.speed >= 0? device.status.speed + " km/h" : "unavailabale"}</p>
+                  <p className=' text-sm'>{device.status.speed >= 0? device.status.speed + " km/h" : "unavailable"}</p>
                 </div>
                 <div className="item">
                   <img className=' w-4 h-4 object-contain' src="./assets/wifi.png"></img>
-                  <p className=' text-sm'>{device.status.signal ? device.status.signal + "%": "unavailabale"}</p>
+                  <p className=' text-sm'>{device.status.signal ? device.status.signal + "%": "unavailable"}</p>
                 </div>
                 <div className="item ">
                   <img className=' w-4 h-4 object-contain' src="./assets/location.png"></img>
@@ -446,7 +446,7 @@ const MyDevice = (props) => {
       (popUpD) ?
       <div className = "popUpD">
         <p>
-          It looks like your tracker subscription payments have failed. Please update your payment method within 7 days, or these trackers will be removed from your account.
+          It looks like your subscription payments have failed. Please update your payment method to continue using your tracker.
         </p>
         <div className="popUp__buttons">
           <button className="portal" onClick={handleUpdateSub}>

@@ -58,7 +58,7 @@ const Footer = () => {
           <Link to="/privacy" className=" text-sm text-white">
             Privacy
           </Link>
-          <Link to="/terms" className=" text-sm text-white">
+          <Link to="/tos" className=" text-sm text-white">
             Terms
           </Link>
         </div>
@@ -122,11 +122,11 @@ const Footer = () => {
           <Link to="/privacy" className=" text-sm text-white">
             Privacy
           </Link>
-          <Link to="/terms" className=" text-sm text-white">
+          <Link to="/tos" className=" text-sm text-white">
             Terms
           </Link>
         </div>
-        <p className=" text-sm py-2 text-center w-full text-white">SafeTag is a company registered in the United Kingdom (no. xxxxxxxxxx)</p>
+        <p className=" text-sm py-2 text-center w-full text-white">DownRiver is a company registered in the United Kingdom (no. 14028429)</p>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ const Footer2 = () => {
     <div style={{borderTop:"1px solid #C9C9C9"}} className=" w-full py-2">
               <div className=" py-2 flex items-center justify-center">
           <img
-            src="/assets/Shield.png"
+            src="/assets/shield.png"
             className=" w-12 object-contain"
             alt=""
           />
@@ -21,7 +21,7 @@ const Footer2 = () => {
             Terms
           </Link>
         </div>
-        <p className=' pb-2 text-sm text-center px-4'>SafeTag is a company registered in the United Kingdom (no. xxxxxxxxxx)</p>
+        <p className=' pb-2 text-sm text-center px-4'>DownRiver is a company registered in the United Kingdom (no. 14028429)</p>
     </div>
   )
 }

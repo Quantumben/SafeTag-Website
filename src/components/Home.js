@@ -177,7 +177,7 @@ const Home = () => {
         </div>
         <div className=" bg-pr w-full block lg:hidden py-8  ">
           <h1 className=" text-center text-white text-4xl pb-10 font-semibold">
-            Our Product
+            Our Products
           </h1>
           <div className="  flex flex-col items-start justify-start gap-2">
             <div className=" flex items-start justify-start pl-10">
@@ -219,7 +219,7 @@ const Home = () => {
         </div>
         <div className=" bg-pr w-full hidden lg:block py-8  ">
           <h1 className=" text-center text-white text-4xl pb-10 font-semibold">
-            Our Product
+            Our Products
           </h1>
           <div className=" grid grid-cols-1 lg:grid-cols-2 gap-10 ">
             <div className=" flex items-center justify-end">
