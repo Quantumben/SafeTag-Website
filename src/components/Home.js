@@ -20,10 +20,10 @@ const Home = () => {
   }, []);
   return (
     <div
-      className=" w-full min-h-screen flex items-center  flex-col overflow-x-hidden"
-      style={{ background: "#FCFCFC" }}
+      className=" w-full min-h-screen m flex items-center  flex-col overflow-x-hidden"
+      
     >
-      <Navigation />
+     {/* <Navigation/> */}
       <div className="container ">
         <div className=" w-full grid lg:hidden  grid-cols-1 gap-40 lg:grid-cols-2 heroBg ">
           <div className=" flex items-center mt-10 justify-center flex-col w-full h-full">
@@ -40,16 +40,16 @@ const Home = () => {
             {loggedIn ? (
               <div className=" flex items-center justify-center w-full gap-2  py-10">
                 <Link
-                  to="/my-devices"
+                  to="/add-device"
                   className=" px-4 py-3 border rounded-md bg-pr cursor-pointer text-white text-sm"
                 >
-                  My Device
+                 Add Tracker
                 </Link>
                 <Link
-                  to="/account"
+                  to="/my-devices"
                   className=" px-4 py-3 bg-white rounded-md  cursor-pointer  text-sm"
                 >
-                  My Account
+                  My Tracker
                 </Link>
               </div>
             ) : (
@@ -118,13 +118,13 @@ const Home = () => {
                   to="/my-devices"
                   className=" px-4 py-3 rounded-md bg-pr cursor-pointer text-white text-sm"
                 >
-                  My Device
+                 View Trackers
                 </Link>
                 <Link
-                  to="/account"
+                  to="/add-device"
                   className=" px-4 py-3 border rounded-md  cursor-pointer  text-sm"
                 >
-                  My Account
+                  Add Tracker
                 </Link>
               </div>
             ) : (

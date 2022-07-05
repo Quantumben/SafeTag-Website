@@ -201,7 +201,7 @@ const Plans = (props) => {
   };
   return (
     <div>
-      <Navigation />
+    
       <div className="plans__container">
         <div className="heading">
           <h2 className=" text-4xl font-semibold">Add Device</h2>

@@ -8,7 +8,7 @@ import axios from "axios";
 
 import "./css/login.css";
 import Footer2 from "./Footer2";
-const Login = (props) => {
+const Login = ({setLoggedIn}) => {
   const history = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,10 +48,13 @@ const Login = (props) => {
 
       if (response.status == 200) {
         response = response.data;
-        await localStorage.setItem("redtrack-id_token", response.IdToken);
-        await localStorage.setItem("redtrack-ref_token", response.RefreshToken);
-        await localStorage.setItem("redtrack-username", email);
+        localStorage.setItem("redtrack-id_token", response.IdToken);
+        localStorage.setItem("redtrack-ref_token", response.RefreshToken);
+        localStorage.setItem("redtrack-username", email);
+
+        setLoggedIn(true);
         history("/my-devices");
+
         return null;
       }
     } catch (e) {
@@ -66,7 +69,7 @@ const Login = (props) => {
 
   return (
     <div>
-      <Navigation />
+
       {error ? <Error message={errorMessage} /> : <></>}
       <h1 className=" mt-10 text-5xl font-bold w-full text-center">Login</h1>
       <div className="login__container ">
@@ -110,9 +113,9 @@ const Login = (props) => {
           </button>
         </div>
       </div>
-   <div className=" mt-40">
-   <Footer2 />
-   </div>
+      <div className=" mt-40">
+        <Footer2 />
+      </div>
     </div>
   );
 };

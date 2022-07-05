@@ -339,7 +339,7 @@ const Register = (props) => {
   };
   return (
     <div>
-      <Navigation />
+    
       {error ? <Error message={errorMessage} /> : <></>}
       <h1 className=" mt-10 text-5xl font-bold w-full text-center">Register</h1>
       <div className="register__container">

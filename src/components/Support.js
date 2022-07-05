@@ -30,7 +30,7 @@ const Support = (props) => {
   ];
   return (
     <div>
-      <Navigation />
+
       <h1 className=" mt-10 text-5xl font-bold w-full text-center">Support</h1>
       <p className=" text-sm text-gray-500 w-full text-center mt-4">
         Please see these frequently asked questions. If you don’t find a <br />{" "}

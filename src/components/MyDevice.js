@@ -338,7 +338,7 @@ const MyDevice = (props) => {
 
   return (
     <div >
-      <Navigation />
+  
         {
           (error)?
           <Error message={errorMsg} />

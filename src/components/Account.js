@@ -97,7 +97,7 @@ const Account = (props) => {
   },[])
   return (
     <div>
-    <Navigation />
+
     <h1 className=' mt-10 text-5xl font-bold w-full text-center'>My Account</h1>
       <div className="account__container px-3 lg:px-0">
         <div className="left__section w-full lg:w-1/3 ">

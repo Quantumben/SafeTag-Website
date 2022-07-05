@@ -5,7 +5,7 @@ import Navigation from "./Navigation";
 const Tos = () => {
   return (
     <div>
-      <Navigation />
+   
       <h1 className=" mt-10 text-5xl font-bold w-full text-center">
       Terms of Service
       </h1>

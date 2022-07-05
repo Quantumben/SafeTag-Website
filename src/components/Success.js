@@ -9,7 +9,7 @@ import Footer2 from "./Footer2";
 const Success = (props) => {
   return (
     <div>
-      <Navigation />
+     
       <div className=" w-full grid lg:hidden  grid-cols-1 gap-40 lg:grid-cols-2  ">
       <div className=" flex items-start px-10 pt-20 flex-col w-full h-full">
        

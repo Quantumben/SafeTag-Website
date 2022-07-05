@@ -3,31 +3,22 @@ import { useNavigate, NavLink, Link } from "react-router-dom";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import "./css/navigation.css";
 
-const Navigation = (props) => {
+const Navigation = ({setLoggedIn, loggedIn}) => {
   const [state, setState] = useState(false);
 
   const history = useNavigate();
 
-  const [loggedIn, setLoggedIn] = useState(false);
 
-  useEffect(() => {
-    const fetchDetails = async () => {
-      const username = await localStorage.getItem("redtrack-username");
 
-      if (username) {
-        setLoggedIn(true);
-      }
-    };
 
-    fetchDetails();
-  }, []);
 
-  const handleLogout = async () => {
-    await localStorage.removeItem("redtrack-ref_token");
-    await localStorage.removeItem("redtrack-id_token");
-    await localStorage.removeItem("redtrack-username");
-
-    history("/login");
+  const handleLogout =  () => {
+     localStorage.removeItem("redtrack-ref_token");
+     localStorage.removeItem("redtrack-id_token");
+     localStorage.removeItem("redtrack-username");
+     setLoggedIn(false)
+      history("/login");
+ 
   };
 
   const [hactive, setHactive] = useState(false);
@@ -52,7 +43,7 @@ const Navigation = (props) => {
     //   header.style.display = "none";
     // };
   }, []);
-
+const [tHistory, setTHistory] = useState(false)
   return (
     <div className=" bg-white w-full flex items-center justify-center shadow-md">
       {/* <ScriptTag isHydrating={true} type="text/javascript" src="../script/dropdown.js"/> */}
@@ -111,6 +102,16 @@ const Navigation = (props) => {
                     </div>
                   ) : (
                     <div className=" absolute w-32 top-9 -left-12 z-30  bg-white border rounded-md p-2 flex flex-col gap-2">
+                   
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "text-pr" : "text-black hover:text-pr"
+                        }
+                        to="/"
+                      >
+                        Home
+                      </NavLink>
+             
                       <NavLink
                         className={({ isActive }) =>
                           isActive ? "text-pr" : "text-black hover:text-pr"
@@ -165,6 +166,33 @@ const Navigation = (props) => {
             >
               Home
             </NavLink>
+            {loggedIn === true && (
+              <div
+                onMouseOver={() => setTHistory(true)}
+                onMouseOut={() => setTHistory(false)}
+                className=" cursor-pointer flex items-center py-2 gap-1 relative "
+              >
+                 <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-pr" : "text-black hover:text-pr"
+              }
+              to="/track"
+            >
+              Tracking
+            </NavLink>
+                {tHistory ? <IoIosArrowDown /> : <IoIosArrowUp />}
+                <div
+                  onMouseOver={() => setTHistory(true)}
+                  onMouseOut={() => setTHistory(false)}
+                  style={tHistory ? { display: "flex" } : { display: "none" }}
+                  className=" absolute top-9 z-20 bg-white rounded-md flex items-start border flex-col w-28 p-3 left-0"
+                >
+                 <Link to="/history" className="text-black hover:text-pr">
+                 History
+                  </Link>
+                </div>
+              </div>
+            )}
             {loggedIn === false && (
               <div
                 onMouseOver={() => setHactive(true)}

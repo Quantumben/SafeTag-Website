@@ -81,7 +81,7 @@ const CEmail = (props) => {
 
   return (
     <div>
-        <Navigation />
+    
 
           {
             (error)?
