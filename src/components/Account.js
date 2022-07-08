@@ -8,6 +8,7 @@ import axios from 'axios';
 import './css/account.css'
 import Footer2 from './Footer2';
 import {AiOutlineCloseCircle} from "react-icons/ai"
+import refresLogin from "../utils/refreshLogin"
 
 const Account = (props) => {
 
@@ -70,15 +71,21 @@ const Account = (props) => {
       }
       catch(e){
         console.log(e.response.data.message);
-        if(e.response.data.message == 'jwt expired'){
-            history("/login")
+        if(e.response.data.message == 'jwt expired' || e.response.data.message == "jwt malformed"){
+          let respo = await refresLogin();
+          if(respo.message != 'okay'){
+            history("/Login");
+            return;
+          }
+          await localStorage.setItem("redtrack-id_token" , respo.token);
+          fetchDetails();
+          return;
         }
       }
     }
-
-
     fetchDetails();
   },[])
+  
   return (
     <div>
 

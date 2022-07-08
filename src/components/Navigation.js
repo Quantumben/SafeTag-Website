@@ -8,10 +8,6 @@ const Navigation = ({setLoggedIn, loggedIn}) => {
 
   const history = useNavigate();
 
-
-
-
-
   const handleLogout =  () => {
      localStorage.removeItem("redtrack-ref_token");
      localStorage.removeItem("redtrack-id_token");

@@ -28,30 +28,38 @@ const Plans = (props) => {
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState();
 
-  useEffect(() => {
-    const fetchDetails = async () => {
-      try {
-        const username = await localStorage.getItem("redtrack-username");
-        if (!username) {
-          history("/login");
-          return;
+  useEffect(()=>{
+
+    const fetchDetails = async ()=>{
+      try{
+        const username = await localStorage.getItem('redtrack-username');
+        let response = await axios.get("https://api.safetagtracking.com/users/"+username , {
+          headers : {
+            "Authorization" : await localStorage.getItem('redtrack-id_token')
+          }
+        })
+        if(response.status === 200){
         }
-        if (username) {
-          showBut(true);
-        }
-        if (username.length == 0) {
-          history("/login");
-        }
-      } catch (e) {
-        console.log(e.response);
-        if (e.response.data.message == "jwt expired") {
-          history("/login");
+        else{
+          history("/login")
         }
       }
-    };
-
+      catch(e){
+        console.log(e.response.data.message);
+        if(e.response.data.message == 'jwt expired' || e.response.data.message == "jwt malformed"){
+          let respo = await refresLogin();
+          if(respo.message != 'okay'){
+            history("/login");
+            return;
+          }
+          await localStorage.setItem("redtrack-id_token" , respo.token);
+          fetchDetails();
+          return;
+        }
+      }
+    }
     fetchDetails();
-  }, []);
+  },[])
 
   const handleSubmit = async () => {
     try {

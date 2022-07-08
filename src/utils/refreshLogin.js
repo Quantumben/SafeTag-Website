@@ -24,6 +24,7 @@ const refresLogin = async ()=>{
 
   catch(e){
     console.log(e.response);
+    //Log out user
     return e.response.data;
   }
 }
