@@ -19,14 +19,12 @@ const Account = (props) => {
   const [userName , setName] = useState("");
   const [contat , setContact] = useState("");
   const [stripeId , setStripeId] = useState(true);
-  const [buttonStatus , setButtonStats] = useState("Add Payment Method")
   const [but_disabled , setButDis] = useState(true);
-  const [hitRoute , setHitRoute]= useState("create-setup-session")
 
 
   const handleSubmit = async ()=>{
     try{
-    let response = await axios.get("https://api.safetagtracking.com/"+hitRoute+"/"+userEmail+"/addDevice" , {
+    let response = await axios.get("https://api.safetagtracking.com/create-portal-session/"+userEmail+"/account" , {
       headers : {
         "Authorization" : await localStorage.getItem('redtrack-id_token')
       }
@@ -46,14 +44,6 @@ const Account = (props) => {
 
 
   useEffect(()=>{
-    if(stripeId != true && stripeId != null){
-      setButtonStats("Update Payment Method")
-      setHitRoute("create-portal-session")
-    }
-  },[stripeId])
-
-
-  useEffect(()=>{
 
     const fetchDetails = async ()=>{
       try{
@@ -65,7 +55,6 @@ const Account = (props) => {
             "Authorization" : await localStorage.getItem('redtrack-id_token')
           }
         })
-
         if(response.status === 200){
           response = response.data
           setContact(response.contact)
@@ -73,16 +62,11 @@ const Account = (props) => {
           setCountry(response.country)
           setEmail(response.username)
           setStripeId(response.stripe_id)
-
-
-
           setButDis(false)
         }
-
         else{
           history("/login")
         }
-
       }
       catch(e){
         console.log(e.response.data.message);
@@ -104,7 +88,7 @@ const Account = (props) => {
         <p className=' font-semibold '> Name</p>
           <div className="details">
             <p>
-              Name : {userName}
+              {userName}
             </p>
           </div>
         <p className=' font-semibold '> Email</p>
@@ -128,9 +112,7 @@ const Account = (props) => {
         <div className="payment_button flex items-center gap-3">
           <p className=' font-semibold'>Billing</p>
             <button className=" px-8  text-white font-semibold bg-pr py-2 rounded-xl" disabled = {but_disabled} onClick= {handleSubmit}>
-              {
-                buttonStatus
-              }
+              Billing Settings
             </button>
           </div>
       </div>

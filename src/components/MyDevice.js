@@ -75,11 +75,6 @@ const MyDevice = (props) => {
       }
 
       await setDevices([...response]);
-
-
-
-
-
     }
     catch(e){
       console.log(e);
@@ -114,7 +109,7 @@ const MyDevice = (props) => {
   const handleUpdateSub = async ()=>{
     try{
       let username = await localStorage.getItem('redtrack-username');
-      let response = await axios.get("https://api.safetagtracking.com/create-portal-session/"+username+"/myDevice" , {
+      let response = await axios.get("https://api.safetagtracking.com/create-portal-session/"+username+"/my-devices" , {
         headers : {
           "Authorization" : await localStorage.getItem('redtrack-id_token')
         }
@@ -297,9 +292,9 @@ const MyDevice = (props) => {
 
   const handleRenewSub = async (e)=>{
     try{
-      let iemi = e.target.id;
+      let device_id = e.target.id;
       let username = await localStorage.getItem('redtrack-username');
-      let response = await axios.get("https://api.safetagtracking.com/device/subscription/"+username+"/"+iemi+"/m" , {
+      let response = await axios.get("https://api.safetagtracking.com/device/subscription/"+username+"/"+device_id+"/m/my-devices" , {
         headers : {
           "Authorization" : await localStorage.getItem('redtrack-id_token')
         }
@@ -390,7 +385,7 @@ const MyDevice = (props) => {
             </div>
             <div className="right__section flex items-center flex-col lg:flex-row justify-center ">
               <div className="sub__status">
-                <p>{device.subscription.status ? device.subscription.status : "Overdue"}</p>
+                <p>{device.subscription.status ? device.subscription.status : "registered"}</p>
               </div>
               {
                 ( device.subscription.status=='active')?
@@ -403,8 +398,13 @@ const MyDevice = (props) => {
                   Manage
                 </button>
                 :
+                ( device.subscription.status=='' || device.subscription.status=='cancelled'|| device.subscription.status=='canceled' )?
+                <button className="action__button" onClick={handleRenewSub}>
+                  Activate
+                </button>
+                :
                 <button className="action__button" id={device._id} onClick={handleRenewSub}>
-                  Renew
+                  Reactivate
                 </button>
               }
 
@@ -412,7 +412,7 @@ const MyDevice = (props) => {
 
             <div className='close'>
               <p id={device._id} onClick={handlePreRemoval}>
-                X
+                x
               </p>
             </div>
           </div>

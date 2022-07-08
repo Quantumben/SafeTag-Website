@@ -35,16 +35,17 @@ function App() {
     <Router>
       <Navigation setLoggedIn={setLoggedIn} loggedIn={loggedIn}/>
       <Routes>
-        
         <Route path="/" element={<Home />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/tos" element={<Tos />} />
+        
         {loggedIn ? (
           <>
             <Route path="/add-device" element={<AddDevice />} />
             <Route path="/account" element={<Account />} />
             <Route path="/track" element={<Track />} />
             <Route path="/history" element={<History />} />
-            <Route path="/privacy" element={<Privacy />} />
             <Route path="/my-devices" element={<MyDevice />} />
             <Route path="/success" element={<Success />} />
             {/* ------------------- */}
@@ -64,13 +65,10 @@ function App() {
             <Route path="/account" element={<Redirect />} />
             <Route path="/track" element={<Redirect />} />
             <Route path="/history" element={<Redirect />} />
-            <Route path="/privacy" element={<Redirect />} />
             <Route path="/my-devices" element={<Redirect />} />
             <Route path="/success" element={<Redirect />} />
           </>
         )}
-
-        <Route path="/tos" element={<Tos />} />
       </Routes>
     </Router>
   );
