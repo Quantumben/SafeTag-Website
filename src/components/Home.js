@@ -34,8 +34,10 @@ const Home = () => {
             />
             <h2 className=" text-pr text-lg pt-2">For your peace of mind.</h2>
             <p className=" text-sm text-center w-96 pt-5 px-4">
-              A modern, reliable, international GPS tracking service built to
-              help everyone keep the things they need safe & secure.
+            Accurate, reliable gps trackers backed up by a powerful, multi-platform, international GPS tracking service.
+            </p>
+            <p className=" text-sm text-center w-96 pt-5 px-4">
+            Built from scratch to help everyone keep the things they need safe and secure.
             </p>
             {loggedIn ? (
               <div className=" flex items-center justify-center w-full gap-2  py-10">
@@ -91,7 +93,7 @@ const Home = () => {
               className=" w-full object-cover h-80"
               alt=""
             />
-            <div className=" absolute -top-20 left-1/4 flex items-center justify-center  h-full z-10 ">
+            <div className=" absolute -top-20 inset-0 flex items-center justify-center  h-full z-10 ">
               <img
                 src="/assets/iphone.png"
                 className=" w-full h-96 object-contain"
@@ -108,9 +110,12 @@ const Home = () => {
               alt=""
             />
             <h2 className=" text-pr text-lg pt-2">For your peace of mind.</h2>
-            <p className=" text text-center w-96 pt-5">
-              A modern, reliable, international GPS tracking service built to
-              help everyone keep the things they need safe & secure.
+            <p className=" text text-center w-2/3 pt-5">
+            Accurate, reliable gps trackers backed up by a powerful, multi-platform, international GPS tracking service.
+            </p>
+            <p className=" text text-center w-2/3 pt-5">
+            Built from scratch to
+              help everyone keep the things they need safe and secure.
             </p>
             {loggedIn ? (
               <div className=" flex items-center justify-center gap-4  py-10">
@@ -166,7 +171,7 @@ const Home = () => {
               className=" w-full h-full object-cover "
               alt=""
             />
-            <div className=" absolute top-0 -left-28 flex items-center justify-center  h-full z-10 ">
+            <div className=" absolute top-0 -left-10 flex items-center justify-center  h-full z-10 ">
               <img
                 src="/assets/iphone.png"
                 className=" w-full h-4/6 object-contain"
@@ -182,21 +187,20 @@ const Home = () => {
           <div className="  flex flex-col items-start justify-start gap-2">
             <div className=" flex items-start justify-start pl-10">
               <img
-                src="/assets/gps.png"
+                src="/assets/products/mag/top.png"
                 className=" h-72 object-contain"
                 alt=""
               />
             </div>
             <div className=" pl-14">
-              <ul className=" list-disc pb-4">
-                <li className=" text-white text-sm"> battery life</li>
-                <li className=" text-white text-sm">active</li>
-                <li className=" text-white text-sm">standby</li>
-
-                <li className=" text-white text-sm">intelligent sleep mode</li>
-                <li className=" text-white text-sm">magnet?</li>
-                <li className=" text-white text-sm">waterproof?</li>
-                <li className=" text-white text-sm">charging mechanism</li>
+              <h1 className="  text-white text-2xl  font-semibold">SafeTag Mag</h1>
+              <h3 className=" text-white text-xl py-2">£29.99</h3>
+              <p className=" text-white text-sm pb-3 w-full lg:w-2/3">
+                A rechargeable, magnetic GPS tracker. Perfect for hiding inside or underneath your vehicle.
+              </p>
+              <ul className=" list-disc pb-10">
+                <li className=" text-white text-sm">30 Day battery life</li>
+                <li className=" text-white text-sm">GPS Accurate within 3 metres</li>
               </ul>
               <div className=" flex items-center gap-5">
                 <button className=" bg-white p-2 shadow-md rounded-md">
@@ -224,23 +228,21 @@ const Home = () => {
           <div className=" grid grid-cols-1 lg:grid-cols-2 gap-10 ">
             <div className=" flex items-center justify-end">
               <img
-                src="/assets/gps.png"
+                src="/assets/products/mag/top.png"
                 className=" h-72 object-contain"
                 alt=""
               />
             </div>
             <div>
-              <h1 className="  text-white text-2xl  font-semibold">Name</h1>
-              <p className=" text-white text-sm py-2 w-full lg:w-2/3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages.
+              <h1 className="  text-white text-2xl  font-semibold">SafeTag Mag</h1>
+              <h3 className=" text-white text-xl pb-2">£29.99</h3>
+              <p className=" text-white text-sm pb-3 w-full lg:w-2/3">
+                A rechargeable, magnetic GPS tracker. Perfect for hiding inside or underneath your vehicle.
               </p>
+              <ul className=" list-disc pb-10">
+                <li className=" text-white text-sm">30 Day battery life</li>
+                <li className=" text-white text-sm">GPS Accurate within 3 metres</li>
+              </ul>
               <div className=" flex items-center gap-5">
                 <button className=" bg-white p-2 shadow-md rounded-md">
                   <img
@@ -336,7 +338,7 @@ const Home = () => {
                   </h3>
                 </div>
                 <p className=" text-xs text-gray-800">
-                  You can view speed, course, status as well as location.
+                  Get summary statistics and a detailed journey summary.
                 </p>
               </div>
               <div>
@@ -459,7 +461,7 @@ const Home = () => {
                   Location History
                 </h3>
                 <p className=" text-sm" style={{ color: "#757575" }}>
-                  You can view speed, course, status as well as location.
+                Get summary statistics and a detailed journey summary.
                 </p>
               </div>
               <div>
