@@ -241,7 +241,7 @@ const Home = () => {
                     </Swiper>
                   </div>
                 </div>
-                <div className="">
+                <div className="px-12">
                   <h1 className="  text-white text-2xl  font-semibold">SafeTag Mag</h1>
                   <h3 className=" text-white text-xl py-2">£29.99</h3>
                   <p className=" text-white text-sm pb-3 w-full lg:w-2/3">
@@ -312,7 +312,7 @@ const Home = () => {
                     </Swiper>
                   </div>
                 </div>
-                <div className="">
+                <div className="px-12">
                   <h1 className="  text-white text-2xl  font-semibold">SafeTag Plug</h1>
                   <h3 className=" text-white text-xl py-2">£24.99</h3>
                   <p className=" text-white text-sm pb-3 w-full lg:w-2/3">
@@ -392,7 +392,7 @@ const Home = () => {
                     </Swiper>
                   </div>
                 </div>
-                <div className="">
+                <div className="px-12">
                   <h1 className="  text-white text-2xl  font-semibold">SafeTag Charge</h1>
                   <h3 className=" text-white text-xl py-2">£24.99</h3>
                   <p className=" text-white text-sm pb-3 w-full lg:w-2/3">
