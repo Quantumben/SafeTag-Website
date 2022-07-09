@@ -102,9 +102,7 @@ const MyDevice = (props) => {
     try {
       let username = localStorage.getItem("redtrack-username");
       let response = await axios.get(
-        "https://api.safetagtracking.com/create-portal-session/" +
-          username +
-          "/myDevice",
+        "https://api.safetagtracking.com/create-portal-session/"+username+"/my-devices",
         {
           headers: {
             Authorization: localStorage.getItem("redtrack-id_token"),
@@ -260,10 +258,7 @@ const MyDevice = (props) => {
     try {
       let username = localStorage.getItem("redtrack-username");
       await axios.delete(
-        "https://api.safetagtracking.com/device/subscription/" +
-          username +
-          "?device_id=" +
-          devCancelId,
+        "https://api.safetagtracking.com/device/subscription/" +username +"?device_id=" +devCancelId,
         {
           headers: {
             Authorization: localStorage.getItem("redtrack-id_token"),
@@ -294,14 +289,10 @@ const MyDevice = (props) => {
 
   const handleRenewSub = async (e) => {
     try {
-      let iemi = e.target.id;
+      let device_id = e.target.id;
       let username = localStorage.getItem("redtrack-username");
       let response = await axios.get(
-        "https://api.safetagtracking.com/device/subscription/" +
-          username +
-          "/" +
-          iemi +
-          "/m",
+        "https://api.safetagtracking.com/device/subscription/"+username+"/"+device_id+"/m/my-devices",
         {
           headers: {
             Authorization: localStorage.getItem("redtrack-id_token"),

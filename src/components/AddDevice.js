@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
-import Navigation from "./Navigation";
 
 import Error from "./Error";
 
@@ -9,105 +8,19 @@ import refresLogin from "../utils/refreshLogin";
 
 import axios from "axios";
 import "./css/addDevice.css";
-import Footer from "./Footer";
 import Footer2 from "./Footer2";
 
 const Plans = (props) => {
   const history = useNavigate();
-
-  const [userEmail, setEmail] = useState("");
-  const [stripeId, setStripeId] = useState(true);
-  const [buttonStatus, setButtonStats] = useState("Add Payment Button");
-  const [but_disabled, setButDis] = useState(true);
-  const [hitRoute, setHitRoute] = useState("create-setup-session");
-  const [butVal, showBut] = useState(false);
-  const [Price_Month, setPriceMonth] = useState("Loading");
-  const [Price_year, setPriceYear] = useState("Loading");
   const [tracker_id, setTrackerId] = useState("");
   const [tracker_name, setTrackerName] = useState("");
   const [subVal, setsub] = useState("y");
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState();
 const [acceptTerms, setAcceptTerms] = useState(false)
-  useEffect(() => {
-    if (stripeId != true && stripeId != null) {
-      setButtonStats("Update Payment Method");
-      setHitRoute("create-portal-session");
-    }
-  }, [stripeId]);
-
-  useEffect(() => {
-    const fetchDetails = async () => {
-      try {
-        const username = await localStorage.getItem("redtrack-username");
-        if (!username) {
-          history("/login");
-          return;
-        }
-        if (username) {
-          showBut(true);
-        }
-        if (username.length == 0) {
-          history("/login");
-        }
-
-        // let response = await axios.get("https://api.safetagtracking.com/users/"+username , {
-        //   headers : {
-        //     "Authorization" : await localStorage.getItem('redtrack-id_token')
-        //   }
-        // })
-        //
-        // if(response.status === 200){
-        //   response = response.data
-        //   setEmail(response.username)
-        //   setStripeId(response.stripe_id)
-        //
-        //
-        //
-        //   setButDis(false)
-        // }
-        //
-        // else{
-        //   history("/login")
-        // }
-
-        let response = await axios.get(
-          "https://api.safetagtracking.com/data/prices"
-        );
-        if (response.status === 200) {
-          response = response.data;
-
-          setPriceMonth(response.m01);
-          setPriceYear(response.y01);
-        } else {
-          alert("Unable to get prices, Contact Support");
-        }
-      } catch (e) {
-        console.log(e.response);
-        if (e.response.data.message == "jwt expired") {
-          history("/login");
-        }
-      }
-    };
-
-    fetchDetails();
-  }, []);
 
   const handleSubmit = async () => {
-    console.log("Life Sucks!");
     try {
-      // let response = await axios.get("https://tuex4qy1sl.execute-api.eu-west-2.amazonaws.com/prod/"+hitRoute+"/"+userEmail , {
-      //   headers : {
-      //     "Authorization" : await localStorage.getItem('redtrack-id_token')
-      //   }
-      //   })
-      //
-      //   if(response.status === 200){
-      //     response = response.data
-      //     window.location.href = response.url;
-      //     return null;
-      //   }
-
       let payload = {
         imei: tracker_id,
         name: tracker_name,
@@ -151,13 +64,7 @@ const [acceptTerms, setAcceptTerms] = useState(false)
       let response = await axios(config);
 
       if (response.status === 200) {
-        response = await axios.get(
-          "https://api.safetagtracking.com/device/subscription/" +
-            username +
-            "/" +
-            tracker_id +
-            "/" +
-            subVal,
+        response = await axios.get("https://api.safetagtracking.com/device/subscription/"+username+"/"+tracker_id+"/"+subVal+"/add-device",
           {
             headers: {
               Authorization: await localStorage.getItem("redtrack-id_token"),
