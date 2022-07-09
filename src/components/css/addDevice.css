@@ -192,4 +192,12 @@
     flex-direction: column;
     align-items: center;
   }
+  .plans__container{
+    width: 100%;
+    margin: auto;
+    margin-top: 64px;
+    text-align: center;
+    padding-bottom: 64px;
+  }
+  
 }

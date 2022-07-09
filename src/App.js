@@ -16,6 +16,7 @@ import Track from "./components/Track";
 import History from "./components/History";
 import Redirect from "./components/Redirect";
 import Navigation from "./components/Navigation";
+import FourZeroFour from "./components/FourZeroFour";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -37,13 +38,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/support" element={<Support />} />
-        <Route path="/privacy" element={<Privacy />} />
         <Route path="/tos" element={<Tos />} />
-        
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="*" element={<FourZeroFour />}/>
         {loggedIn ? (
           <>
             <Route path="/add-device" element={<AddDevice />} />
-            <Route path="/account" element={<Account />} />
+            <Route path="/account" element={<Account setLoggedIn={setLoggedIn}/>} />
             <Route path="/track" element={<Track />} />
             <Route path="/history" element={<History />} />
             <Route path="/my-devices" element={<MyDevice />} />

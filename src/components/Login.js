@@ -90,13 +90,15 @@ const Login = ({setLoggedIn}) => {
 
         <div className="login__form">
           <input
-            type="text"
+            required
+            type="email"
             value={email}
             placeholder="Email"
             onChange={onEmailInput}
           ></input>
 
           <input
+            required
             type="password"
             value={password}
             placeholder="Password"

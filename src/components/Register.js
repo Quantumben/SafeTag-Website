@@ -336,6 +336,7 @@ const Register = (props) => {
       setErrorMessage(e.response.data.message);
     }
   };
+  const [acceptTerms, setAcceptTerms] = useState(false)
   return (
     <div>
     
@@ -400,18 +401,31 @@ const Register = (props) => {
             })}
           </select>
           {
-            <div className=" flex tellMe items-center justify-center w-full gap-3 pt-4 text-gray-700 font-medium">
+            <div className=" flex tellMe items-center  justify-between lg:px-24 w-full gap-3 pt-4 text-gray-600 font-medium">
              <label htmlFor="check"> I want to receive SafeTag Updates</label>
-              <div className=" flex items-center justify-center pt-5">
-              <input type="checkbox" onChange={(e)=>setChecked(e.target.checked)} name="check" id="check" />
+              <div className=" flex items-center justify-center pt-5 w-5 h-5">
+              <input type="checkbox" className="w-5 h-5" onChange={(e)=>setChecked(e.target.checked)} name="check" id="check" />
               </div>
             </div>
           }
+                 <div className=" py-2 w-full flex items-center justify-between lg:px-24 gap-2">
+            <Link to="/tos" className=" text-gray-600">I accept the Terms of service</Link>
+            <div className=" w-5 h-5">
+            <input onChange={(e)=>setAcceptTerms(e.target.checked)} className=" w-5 h-5" type="checkbox" name="" id="" />
+            </div>
+          </div>
         </div>
         <div className="signin__button__container">
-          <button onClick={handleSubmit} className="sigin__button">
-            Sign Up
-          </button>
+       {
+        acceptTerms ? 
+        <button onClick={handleSubmit} className="sigin__button cursor-pointer">
+        Sign Up
+      </button>
+      :
+         <button disabled className="sigin__button cursor-not-allowed">
+         Sign Up
+       </button>
+       }
         </div>
       </div>
       <Footer2 />

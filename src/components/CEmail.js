@@ -1,7 +1,6 @@
 import React , {useState,useEffect} from 'react'
 
-import {Link , useNavigate} from 'react-router-dom'
-import Navigation from "./Navigation"
+import {useNavigate} from 'react-router-dom'
 import Error from "./Error"
 
 import axios from 'axios';
@@ -25,11 +24,9 @@ const CEmail = (props) => {
   }
 
   const handleSubmit = async()=>{
-    console.log("Me Sad Alone");
     if(username.length === 0 || confirmCode.length ===0){
       alert("All Input fields are required");
     }
-
     try{
       let response = await axios.post("https://api.safetagtracking.com/users/confirm/"+username+"/"+confirmCode,{
         headers : {
@@ -80,14 +77,12 @@ const CEmail = (props) => {
 
   return (
     <div>
-    
-
-          {
-            (error)?
-            <Error message={errorMessage} />
-            :
-            <></>
-          }
+      {
+        (error)?
+        <Error message={errorMessage} />
+        :
+        <></>
+      }
       <div className ="register__container">
         <div className="heading">
           <h1>
@@ -95,7 +90,7 @@ const CEmail = (props) => {
           </h1>
         </div>
         <div className="registration__form">
-          <input type="text" value={username} placeholder="Username" onChange ={updateUsername} required>
+          <input type="email" value={username} placeholder="Username" onChange ={updateUsername} required>
           </input>
 
           <input type="text" value = {confirmCode} placeholder="Confirmation Code" onChange ={updateCode} required>

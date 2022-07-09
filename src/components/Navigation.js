@@ -1,48 +1,31 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, NavLink, Link } from "react-router-dom";
-import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp, IoIosArrowDown,  } from "react-icons/io";
+import { IoCloseSharp } from "react-icons/io5";
+import { GoThreeBars } from "react-icons//go";
 import "./css/navigation.css";
 
 const Navigation = ({setLoggedIn, loggedIn}) => {
-  const [state, setState] = useState(false);
 
   const history = useNavigate();
-
   const handleLogout =  () => {
      localStorage.removeItem("redtrack-ref_token");
      localStorage.removeItem("redtrack-id_token");
      localStorage.removeItem("redtrack-username");
      setLoggedIn(false)
       history("/login");
- 
   };
 
   const [hactive, setHactive] = useState(false);
   const [mactive, setMactive] = useState(false);
   const [authhActive, setAuthhActive] = useState(false);
   const [authhActive2, setAuthhActive2] = useState(false);
-  // const showheader = useRef()
-  useEffect(() => {
-    // let header = React.findDOMNode(showheader);
-    // console.log("header", header);
-    // let myEvent = document.getElementById("header_box");
-    // myEvent.addEventListener("mouseover", () => {
-    //   header.style.display = "block";
-    // });
-    // document.getElementById("showheader").onmouseover = function callheader() {
-    //   header.style.display = "flex";
-    // };
-    // document.getElementById("showheader").onmouseout = function callheader() {
-    //   header.style.display = "none";
-    // };
-    // document.getElementById("header_box").onmouseout = function callheader() {
-    //   header.style.display = "none";
-    // };
-  }, []);
+
+  useEffect(() => {}, []);
+
 const [tHistory, setTHistory] = useState(false)
   return (
     <div className=" bg-white w-full flex items-center justify-center shadow-md">
-      {/* <ScriptTag isHydrating={true} type="text/javascript" src="../script/dropdown.js"/> */}
       <div className="container">
         <div className="  flex items-center justify-between py-4  px-5 bg-white">
           <div className="flex items-center justify-center gap-3 lg:justify-start w-full">
@@ -50,25 +33,26 @@ const [tHistory, setTHistory] = useState(false)
               <img
                 className=" object-contain h-10"
                 src="/assets/shield.png"
+                alt="SafeTag Logo"
               ></img>
-              <img className=" object-contain h-8" src="/assets/name.png"></img>
+              <img className=" object-contain h-8" src="/assets/name.png" alt="SafeTag Name"></img>
             </Link>
             <div className=" block relative lg:hidden">
               {mactive ? (
-                <IoIosArrowDown
+                <IoCloseSharp
                   onClick={() => setMactive(false)}
-                  className=" w-8 text-gray-500 h-8  cursor-pointer"
+                  className=" w-8  h-8  cursor-pointer"
                 />
               ) : (
-                <IoIosArrowUp
+                <GoThreeBars
                   onClick={() => setMactive(true)}
-                  className=" w-8 text-gray-500 h-8  cursor-pointer"
+                  className=" w-8  h-8  cursor-pointer"
                 />
               )}
               {mactive && (
                 <>
                   {loggedIn === false ? (
-                    <div className=" absolute w-28 top-9 -left-10 z-30  bg-white border rounded-md p-2 flex flex-col gap-2">
+                    <div className=" absolute w-28 top-9 -left-16 z-30  bg-white border rounded-md p-2 flex flex-col gap-2">
                       <NavLink
                         className={({ isActive }) =>
                           isActive ? "text-pr" : "text-black hover:text-pr"
@@ -97,7 +81,7 @@ const [tHistory, setTHistory] = useState(false)
                       </NavLink>
                     </div>
                   ) : (
-                    <div className=" absolute w-32 top-9 -left-12 z-30  bg-white border rounded-md p-2 flex flex-col gap-2">
+                    <div className=" absolute w-32 top-9 -left-16 z-30  bg-white border rounded-md p-2 flex flex-col gap-2">
                    
                       <NavLink
                         className={({ isActive }) =>
@@ -198,7 +182,7 @@ const [tHistory, setTHistory] = useState(false)
                 <a
                   target="_blank"
                   href="https://shop.safetagtracking.com"
-                  className="text-black hover:text-pr "
+                  className="text-black hover:text-pr " rel="noreferrer"
                 >
                   Shop
                 </a>{" "}
@@ -212,21 +196,20 @@ const [tHistory, setTHistory] = useState(false)
                   <a
                     target="_blank"
                     className="text-black hover:text-pr"
-                    href="https://amazon.co.uk"
+                    href="https://amazon.co.uk" rel="noreferrer"
                   >
                     Amazon
                   </a>
                   <a
                     target="_blank"
                     className="text-black hover:text-pr"
-                    href="https://ebay.co.uk"
+                    href="https://ebay.co.uk" rel="noreferrer"
                   >
                     Ebay
                   </a>
                 </div>
               </div>
             )}
-            
 
             {loggedIn === true && (
               <div className=" relative">
@@ -263,8 +246,7 @@ const [tHistory, setTHistory] = useState(false)
               className={({ isActive }) =>
                 isActive ? "text-pr" : "text-black hover:text-pr"
               }
-              to="/Support"
-            >
+              to="/Support">
               Support
             </NavLink>
             {loggedIn ? (

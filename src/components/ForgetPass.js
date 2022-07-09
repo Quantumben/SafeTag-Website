@@ -84,29 +84,19 @@ const ForgetPass = (props) => {
       }
     } catch (e) {
       setError(true)
-      var err_response = e.response.data.message
+      setErrorMessage(e.response.data.message)
       console.log(e.response.data.message);
-      if(err_response=="Username/client id combination not found."){
-        setErrorMessage("Account not found.")
-      }else if(err_response=="1 validation error detected: Value at 'password' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[\S]+.*[\S]+$"){
-        setErrorMessage("Please enter a valid password")
-      }else if (err_response=="Password does not conform to policy: Password must have numeric characters"){
-        setErrorMessage("Passwords must contain letters and numbers")
-      }else if (err_response=="Invalid verification code provided, please try again"){
-        setErrorMessage("Invalid verification code provided, please try again.")
-      }else{
-        setErrorMessage("Password could not be reset, please contact support")
-      }      
     }
   };
 
   return (
     <div>
+  
       {error ? <Error message={errorMessage} /> : <></>}
-        <h1 className=" mt-10 text-5xl font-bold w-full text-center">
-        Reset Password
+      <h1 className=" mt-10 text-5xl font-bold w-full text-center">
+        Forget Passoword
       </h1>
-      <div className="register__container mt-10">
+      <div className="register__container ">
         <div className="registration__form">
           <input
             type="text"
@@ -115,7 +105,7 @@ const ForgetPass = (props) => {
             onChange={updateName}
             required
           ></input>
-          
+
           <button
             onClick={(event) => {
               event.preventDefault();

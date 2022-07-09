@@ -17,7 +17,7 @@ const Success = (props) => {
             Thank you for your payment.
           </h2>
           <h2 className="  text-xl text-pr font-semibold text-center w-full ">
-            Your tracker is will active in the next few minutes.
+            Your tracker is  now live.
           </h2>
 
           <p className=" pt-2 text-gray-500 text-lg text-center">

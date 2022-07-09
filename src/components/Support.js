@@ -30,7 +30,6 @@ const Support = (props) => {
   ];
   return (
     <div>
-
       <h1 className=" mt-10 text-5xl font-bold w-full text-center">Support</h1>
       <p className=" text-sm text-gray-500 w-full text-center mt-4">
         Please see these frequently asked questions. If you don’t find a <br />{" "}
@@ -51,10 +50,11 @@ const Support = (props) => {
             >
               <div className="heading w-full flex items-center  justify-between">
                 <h3>{item?.title}</h3>
-               {
-                active !== ind ?  <IoIosArrowDown className=" w-7 h-7" />:  <IoIosArrowUp className=" w-7 h-7" />
-               }
-               
+                {active !== ind ? (
+                  <IoIosArrowDown className=" w-7 h-7" />
+                ) : (
+                  <IoIosArrowUp className=" w-7 h-7" />
+                )}
               </div>
               {active === ind && (
                 <div className="content">
@@ -65,7 +65,9 @@ const Support = (props) => {
           ))}
         </div>
       </div>
-      <Footer2/>
+      <div className=" mt-24">
+        <Footer2 />
+      </div>
     </div>
   );
 };
